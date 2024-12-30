@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure work Report</title>
+
+    <!-- Vendor CSS -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/venobox/venobox.min.css" rel="stylesheet">
+    <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../assets/css/project-details.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="../index.html" class="btn-back-to-portfolio">Back to Portfolio</a>
+        </div>
+    </header>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Content -->
+    <main id="main" class="container mt-5">
+        <section id="project-details" class="about">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2 class="project-title">Adventure work Report</h2>
+                    <div class="title-separator"></div> <!-- Line Separator -->
+                </div>
+                <div class="row">
+                    <!-- Image Section -->
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="../assets/img/projects/awreport.png" class="img-fluid portfolio-img" alt="Adventure work Report">
+                    </div>
+                    <!-- Text Section -->
+                    <div class="col-lg-6 content" data-aos="fade-left" data-aos-delay="200">
+                        <h3>Project Overview</h3>
+                        <p class="text-justify">
+                            During the course of "Microsoft Power BI Desktop for Business Intelligence" certification, I was given the opportunity to participate in a bonus project known as "Maven Market Analysis" I've constructed this Dashboard 📊 utilizing "Maven Market" datasets, in an effort to gain insightful knowledge regarding.
+                        </p>
+                        <h3>Key Features</h3>
+                        <ul class="text-justify">
+                            <li>Total Revenue: $817.9K</li>
+                            <li>Orders by Weekday and Business Hour</li>
+                            <li>Top Ingredients Used</li>
+                        </ul>
+                        <h3>Tools Used</h3>
+                        <div class="tools-used">
+                            <span>Excel</span>
+                           
+                        </div>
+                        <a href="https://github.com/rmpranto/Maven_Market_Analysis" target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="bx bxl-github"></i> View on GitHub
+                        </a>
+						<a href="https://app.powerbi.com/view?r=eyJrIjoiMGI2NTIyZTUtZmQ0Ni00NmQ3LWEyMjEtMDI2ZGFlNDkzZTgyIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" target="_blank" class="btn btn-outline-primary mt-3">
+                            <i class="bx bxl-powerbi"></i> View on PowerBI
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back-to-Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="bx bx-up-arrow-alt"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="mt-5">
+        <div class="container text-center">
+            <p>© 2024 Rahat Maksud Pranto</p>
+            <div class="social-links">
+                <a href="https://github.com/rmpranto" target="_blank" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/rmpranto/" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://twitter.com/rm_pranto" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://wa.link/aofdob" target="_blank" class="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../assets/vendor/venobox/venobox.min.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/js/particles.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="../assets/js/main.min.js"></script>
+
+    <!-- Particle Background Configuration -->
+    <script>
+        particlesJS.load('particles-js', '../assets/js/particles-config.json', function() {
+            console.log('Particles.js loaded.');
+        });
+
+        // Back-to-Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
