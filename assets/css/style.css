@@ -231,9 +231,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Mobile Navigation */
 .mobile-nav-toggle {
-    position: fixed;
-    right: 15px;
-    top: 15px;
+    position: absolute;
+    Left: 15px;
+    top: 20px;
     z-index: 9998;
     border: 0;
     background: none;
@@ -1090,7 +1090,7 @@ section {
 .theme-switcher {
     position: absolute;
     top: 20px;
-    left: 20px;
+    Right: 20px;
     z-index: 1000;
 }
 
