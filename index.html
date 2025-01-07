@@ -29,6 +29,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<!-- Font-awesome-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -45,12 +46,13 @@
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 	<script src="https://kit.fontawesome.com/065eda53c0.js" crossorigin="anonymous"></script>
-	
+
+	<!-- AOS CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
     <!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
-	
-	
-	
+
 </head>
 
 <body>
@@ -76,10 +78,19 @@
         </ul>
     </nav><!-- .nav-menu -->
 
-</header><!-- End Header -->
+    </div>
+</header>
+
+<!--=======End Header=======-->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center">
+	<div class="theme-switcher">
+        <button id="theme-toggle" aria-label="Toggle Dark Mode">
+            <i id="theme-icon" class="bx bx-moon"></i>
+            <span id="theme-text">Dark Mode</span>
+        </button>
+    </div>
     <div class="container" data-aos="zoom-in" data-aos-delay="40">
 	<h3>Hello! I'm</h3>
         <h1>Rahat Maksud Pranto</h1>
@@ -93,8 +104,6 @@
 			<a href="https://wa.link/aofdob" target="_blank" class="social-link"><i class="fa fa-whatsapp"></i></a>
 			<a href="https://join.skype.com/invite/sKhUH0LmTvD0" target="_blank" class="social-link"><i class="fa fa-skype"></i></a>
 			<a href="https://twitter.com/rm_pranto" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>	
-
-		
         </div>
         
 		<div class="mt-4">
@@ -1024,7 +1033,7 @@
  
 <section id="Contact" class="contact-section">
 <div id="particles-js"></div>
-  <div class="container">
+  <div class="container"data-aos="fade-up">
 			<div class="section-title">
                 <h2>Get in Touch</h2>
             </div>
@@ -1075,6 +1084,7 @@
 			<a href="mailto:mail.rmpranto@gmail.com" target="_blank" class="social-link"><i class="fa fa-envelope"></i></a>
 			<a href="https://github.com/rmpranto" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
 			<a href="https://wa.link/aofdob" target="_blank" class="social-link"><i class="fa fa-whatsapp"></i></a>
+			<a href="https://join.skype.com/invite/sKhUH0LmTvD0" target="_blank" class="social-link"><i class="fa fa-skype"></i></a>
 			<a href="https://twitter.com/rm_pranto" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
     <p class="footer-text">© 2025 <b>Rahat Maksud Pranto</b>. All Rights Reserved.</br>Designed by<b> Rahat Maksud Pranto</b></p>
@@ -1108,6 +1118,52 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.min.js"></script>   
+
+<!-- AOS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        easing: 'ease-in-out', // Easing function
+        once: true, // Whether animation should happen only once
+        mirror: false, // Whether elements should animate out while scrolling past
+    });
+</script>
+
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    // Check for saved theme preference in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.classList.replace('bx-moon', 'bx-sun');
+        themeText.textContent = 'Light Mode';
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+
+        // Update the icon and text
+        themeIcon.classList.toggle('bx-moon', !isDarkMode);
+        themeIcon.classList.toggle('bx-sun', isDarkMode);
+        themeText.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+
+        // Save the preference in localStorage
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+</script>
+
+
+
 
 </body>
 

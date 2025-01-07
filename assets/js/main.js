@@ -128,6 +128,37 @@
         });
     }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const header = document.querySelector('#header');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Toggle mobile navigation
+    mobileNavToggle.addEventListener('click', () => {
+        header.classList.toggle('nav-menu-active');
+    });
+
+    // Close mobile menu on clicking a menu item
+    navMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            header.classList.remove('nav-menu-active');
+        }
+    });
+});
+
+
+const logo = document.getElementById('logo');
+if (document.body.classList.contains('dark-mode')) {
+    logo.src = 'logo-dark.png';
+} else {
+    logo.src = 'logo-light.png';
+}
+
+
+
+
+
     // Porfolio isotope and filter
     $(window).on('load', function () {
         const portfolioIsotope = $('.portfolio-container').isotope({

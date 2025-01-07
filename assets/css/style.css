@@ -4,8 +4,10 @@
 body {
     font-family: "Open Sans", sans-serif;
     color: #272829;
+}
+
 .white-vertion .page-item.active .page-link {
-  background-color: transparent;
+  background-color: none;
   border-color: #fff;
   color: #1089ff;
 }
@@ -259,6 +261,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #0563bb;
 }
 
+@media (max-width: 768px) {
+    /* Mobile styles */
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -1069,3 +1074,108 @@ section {
   }
 }
 
+/* Add a default opacity for better transitions */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Ensure visible after animation */
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+
+/* Theme Switcher Button */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background: #f1f1f1;
+}
+
+#theme-toggle i {
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+#theme-toggle span {
+    font-size: 14px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode #theme-toggle {
+    background: #333;
+    border-color: #444;
+}
+
+body.dark-mode #theme-toggle i {
+    color: #ffffff;
+}
+
+body.dark-mode #theme-toggle span {
+    color: #ffffff;
+}
+
+/* Adjusting Section Backgrounds */
+body.dark-mode header, 
+body.dark-mode footer, 
+body.dark-mode .nav-menu ul {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode a {
+    color: #4caf50; /* Update this color to align with your design */
+}
+
+/* Fixing Menu Background */
+body.dark-mode .nav-menu ul {
+    background-color: transparent !important;
+}
+
+
+/* Text and Logo Adjustments */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode p {
+    color: #ffffff;
+}
+
+body.dark-mode .skills-logo {
+    filter: invert(1) hue-rotate(180deg); /* Adjust logos to suit dark mode */
+}
+
+
+* {
+    transition: background-color 0.3s, color 0.3s, filter 0.3s;
+}
