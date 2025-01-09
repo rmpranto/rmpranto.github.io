@@ -123,11 +123,11 @@
 
             <div class="section-title">
                 <h2>About</h2>
-            </div>
-
+            </div> 
+			
             <div class="row mt-md-5">
                 <div class="col-lg-4">
-                    <img src="assets/img/about-pic.JPG" class="img-fluid img-thumbnail shadow-lg" alt="">
+                    <img src="assets/img/about-pic.png" class="img-fluid " alt="">
                     
                 </div>
                 <div class="col-lg-8 pt-4 pt-lg-0 content">
@@ -1144,7 +1144,9 @@
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         themeIcon.classList.replace('bx-moon', 'bx-sun');
+        themeIcon.style.color = '#FFCC33'; // Sun color
         themeText.textContent = 'Light Mode';
+        applyDarkModeStyles();
     }
 
     // Toggle theme on button click
@@ -1155,14 +1157,90 @@
         // Update the icon and text
         themeIcon.classList.toggle('bx-moon', !isDarkMode);
         themeIcon.classList.toggle('bx-sun', isDarkMode);
+        themeIcon.style.color = isDarkMode ? '#FFCC33' : '#FFCC33'; // Sun for dark mode, moon for light mode
         themeText.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
 
         // Save the preference in localStorage
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+        // Apply styles dynamically
+        if (isDarkMode) {
+            applyDarkModeStyles();
+        } else {
+            removeDarkModeStyles();
+        }
     });
+
+    // Function to apply dark mode styles
+    function applyDarkModeStyles() {
+        // Certifications Section
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = '#333'; // Dark background
+            card.style.color = '#fff'; // White text
+            card.style.border = '1px solid #444'; // Subtle border
+        });
+
+        // Projects Section
+        document.querySelectorAll('.portfolio-item .portfolio-wrap').forEach(item => {
+            item.style.backgroundColor = '#333'; // Dark background
+            item.style.color = '#fff'; // White text
+        });
+
+        // Portfolio Filter Bar
+        const filterBar = document.getElementById('portfolio-filters');
+        if (filterBar) {
+            filterBar.style.backgroundColor = '#444'; // Medium dark gray
+            filterBar.style.color = '#fff'; // White text
+        }
+
+        // Filter Bar Text Color
+        document.querySelectorAll('#portfolio-filters li').forEach(filter => {
+            filter.style.color = '#ccc'; // Unselected text color
+        });
+
+        // Selected Filter Style
+        const activeFilter = document.querySelector('#portfolio-filters .filter-active');
+        if (activeFilter) {
+            activeFilter.style.color = '#fff'; // Selected text color
+            activeFilter.style.fontWeight = 'bold'; // Bold for active
+        }
+    }
+
+    // Function to remove dark mode styles
+    function removeDarkModeStyles() {
+        // Certifications Section
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = ''; // Reset background
+            card.style.color = ''; // Reset text color
+            card.style.border = ''; // Reset border
+        });
+
+        // Projects Section
+        document.querySelectorAll('.portfolio-item .portfolio-wrap').forEach(item => {
+            item.style.backgroundColor = ''; // Reset background
+            item.style.color = ''; // Reset text color
+        });
+
+        // Portfolio Filter Bar
+        const filterBar = document.getElementById('portfolio-filters');
+        if (filterBar) {
+            filterBar.style.backgroundColor = ''; // Reset background
+            filterBar.style.color = ''; // Reset text color
+        }
+
+        // Filter Bar Text Color
+        document.querySelectorAll('#portfolio-filters li').forEach(filter => {
+            filter.style.color = ''; // Reset unselected text color
+        });
+
+        // Selected Filter Style
+        const activeFilter = document.querySelector('#portfolio-filters .filter-active');
+        if (activeFilter) {
+            activeFilter.style.color = ''; // Reset selected text color
+            activeFilter.style.fontWeight = ''; // Reset bold for active
+        }
+    }
 </script>
-
-
 
 
 </body>

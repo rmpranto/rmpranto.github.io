@@ -6,6 +6,8 @@ body {
     color: #272829;
 }
 
+
+
 .white-vertion .page-item.active .page-link {
   background-color: none;
   border-color: #fff;
@@ -119,8 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 
-
-
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -161,8 +161,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------------------------------------------------
 # Navigation Menu
-.form-group {
-  position: relative; }
 --------------------------------------------------------------*/
 /* Desktop Navigation */
 .nav-menu * {
@@ -264,6 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     /* Mobile styles */
 }
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -274,6 +273,14 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     position: relative;
 }
+
+#hero .parallax {
+    background: url(../img/header.jpg) no-repeat fixed center;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+}
+
 @media (min-width: 992px) {
     #hero {
         padding-left: 160px;
@@ -282,12 +289,12 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero:before {
     content: "";
-    background: rgba(255, 255, 255, 0.9);
+    background: ;
     position: absolute;
     bottom: 0;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0;none
 }
 
 #hero h1 {
@@ -343,6 +350,7 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 24px;
     }
 }
+
 
 /*--------------------------------------------------------------
 # Sections General
@@ -440,6 +448,7 @@ section {
     max-width: 350px;
     height: auto;
     border-radius: 50%;
+	background: transparent;
     border: 6px solid rgba(255, 255, 255, 0.8); /* Light border for emphasis */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -625,11 +634,12 @@ section {
 
 .resume .resume-item h5 {
     font-size: 16px;
-    background: #f7f8f9;
+    background: none;
     padding: 5px 15px;
     display: inline-block;
     font-weight: 600;
     margin-bottom: 10px;
+	color: #BBBBBB;
 }
 
 .resume .resume-item ul {
@@ -657,7 +667,13 @@ section {
 }
 
 
-/* Portfolio Filters */
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Portfolio Filters 
+--------------------------------------------------------------*/
+
 .portfolio #portfolio-filters {
     margin: 0 auto 25px auto;
     list-style: none;
@@ -696,10 +712,11 @@ section {
     }
 }
 
+
 /*--------------------------------------------------------------
-# Portfolio
+Portfolio Section
 --------------------------------------------------------------*/
-/* Portfolio Section */
+
 .portfolio .portfolio-item {
     margin-bottom: 30px;
     display: flex;
@@ -769,6 +786,8 @@ section {
     color: #0678e3;
 }
 
+
+
 ----/*certifications*/-------
 
 #certifications .card {
@@ -832,10 +851,9 @@ section {
 }
 
 /*--------------------------------------------------------------
-/* Contact
+Contact
 --------------------------------------------------------------*/
 
-/* Contact Section */
 .contact-section {
   background: none;
   position: relative;
@@ -932,8 +950,6 @@ section {
   margin-left: auto; /* Center horizontally */
   margin-right: auto; /* Center horizontally */
   text-align: center; /* Center the text inside the button */
-}
-
 }
 
 .contact-form .btn-submit:hover {
@@ -1085,8 +1101,9 @@ section {
     opacity: 1;
 }
 
-
-/* Theme Switcher Button */
+/*--------------------------
+Theme Switcher Button
+---------------------------*/
 .theme-switcher {
     position: absolute;
     top: 20px;
@@ -1112,8 +1129,6 @@ section {
 }
 
 #theme-toggle i {
-    font-size: 20px;
-    color: #333;
     transition: color 0.3s ease;
 }
 
@@ -1122,6 +1137,8 @@ section {
     color: #333;
     transition: color 0.3s ease;
 }
+
+
 
 /* Dark Mode Styles */
 body.dark-mode #theme-toggle {
@@ -1151,7 +1168,7 @@ body.dark-mode {
 }
 
 body.dark-mode a {
-    color: #4caf50; /* Update this color to align with your design */
+    color: #FA4032; /* Update this color to align with your design */
 }
 
 /* Fixing Menu Background */
@@ -1176,6 +1193,127 @@ body.dark-mode .skills-logo {
 }
 
 
+/* Light Mode (Moon Icon White) */
+#theme-toggle i.bx-moon {
+    color: #FFCC33;
+}
+
+/* Dark Mode (Sun Icon Yellow) */
+body.dark-mode #theme-toggle i.bx-sun {
+    color: #FFCC33; /* Bright yellow for the sun */
+}
+
+
+
+
+/*------------------------------------ 
+Contact Form Dark Mode Background
+-------------------------------------- */
+
+body.dark-mode .contact-form {
+    background-color: #222; /* Darker gray for contact form */
+    color: #fff; /* White text */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+}
+
+/* Additional Styling for Form Fields in Dark Mode */
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #333; /* Dark gray for input fields */
+    color: #fff; /* White text */
+    border: 1px solid #555; /* Subtle border for input fields */
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+    color: #bbb; /* Lighter gray for placeholders */
+}
+
+/* Button in Dark Mode */
+body.dark-mode .contact-form button {
+    background-color: #0563bb; /* Keep button blue for consistency */
+    color: #fff; /* White text */
+    border: none;
+}
+
+/* Ensure Header/Menu Looks Correct in Dark Mode */
+body.dark-mode #header {
+    background-color: #222; /* Dark background for header */
+    color: #fff; /* White text */
+}
+
+
+/* ------------------------------------
+Dark Mode Styles for Projects 
+---------------------------------------*/
+body.dark-mode .portfolio-item .portfolio-wrap {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Dark Mode Styles for Portfolio Filters */
+body.dark-mode #portfolio-filters {
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 50px;
+    display: inline-block;
+    width: auto; /* Matches light mode size */
+}
+
+/* Filter Items (Unselected State) */
+body.dark-mode #portfolio-filters li {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #666; /* Default unselected text color */
+}
+
+body.dark-mode #portfolio-filters li.filter-active {
+    color: #fff; /* White for active filter */
+    background-color: #0563bb; /* Blue for active background */
+    border-radius: 3px;
+}
+
+
+/* ----------------------------------------
+Dark Mode Styles for Certifications 
+-----------------------------------------*/
+
+body.dark-mode .card {
+    background-color: #333; /* Dark background for certifications */
+    color: #fff; /* White text */
+    border: 1px solid #444; /* Subtle border */
+}
+
+body.dark-mode .card .card-title {
+    color: #fff; /* Ensure title is white */
+}
+
+body.dark-mode .card .card-link {
+    color: #56ccf2; /* Light blue for links */
+}
+
+body.dark-mode .card .card-link:hover {
+    color: #2d9cdb; /* Slightly darker blue on hover */
+}
+
+/* Certifications Section */
+.card {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* ----------------------------------------
+
+-----------------------------------------*/
+
 * {
     transition: background-color 0.3s, color 0.3s, filter 0.3s;
 }
+
+
