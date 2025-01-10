@@ -723,13 +723,14 @@ Portfolio Filters
 
 
 /*--------------------------------------------------------------
-Portfolio Section
+Portfolio Section + certifications
 --------------------------------------------------------------*/
 
+/* Portfolio Section Styling (Shared with Certifications) */
 .portfolio .portfolio-item {
     margin-bottom: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: center ;
 }
 
 .portfolio .portfolio-wrap {
@@ -739,13 +740,12 @@ Portfolio Section
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Full width for responsiveness */
-    max-width: 350px; /* Matches your earlier design */
-    height: 350px; /* Consistent height */
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: left;
 }
 
 .portfolio .portfolio-wrap:hover {
@@ -755,7 +755,7 @@ Portfolio Section
 
 .portfolio .portfolio-wrap img {
     width: 100%;
-    height: 60%; /* Consistent image height */
+    height: 60%;
     object-fit: fill;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -764,15 +764,16 @@ Portfolio Section
 .portfolio .portfolio-wrap .portfolio-info {
     padding: 15px;
     background: #f7f8f9;
-    border-top: 1px solid #ddd;
     flex-grow: 1;
+    text-align: Left;
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
     font-size: 18px;
     font-weight: 600;
     margin: 10px 0;
-    color: #45505b;
+    color: #8aa3ac !important;
+	text-align: left !important;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
@@ -781,90 +782,89 @@ Portfolio Section
     margin: 0;
 }
 
-.portfolio .portfolio-wrap .details-link {
-    margin-top: 10px;
+/* Dark Mode for Certifications */
+body.dark-mode .portfolio .portfolio-wrap {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .portfolio .portfolio-wrap .portfolio-info {
+    background: #444;
+}
+
+body.dark-mode .portfolio .portfolio-wrap:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Portfolio and Certifications Links */
+.portfolio .portfolio-wrap .details-link,
+.certifications .portfolio-wrap .details-link {
     display: inline-block;
+    margin-top: 10px;
     font-size: 16px;
-    color: #0563bb;
+    color: #0563bb; /* Default link color */
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.portfolio .portfolio-wrap .details-link:hover {
-    color: #0678e3;
+.portfolio .portfolio-wrap .details-link:hover,
+.certifications .portfolio-wrap .details-link:hover {
+    color: #0678e3; /* Hover link color */
+    text-decoration: underline; /* Optional hover effect */
 }
 
-
-
-----/*certifications*/-------
-
-#certifications .card {
-	position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
-    text-align: left;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 10px;
-	width: 100%; /* Full width for responsiveness */
-    max-width: 350px; /* Matches your earlier design */
-    height: 350px; /* Consistent height */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Dark Mode Links */
+body.dark-mode .portfolio .portfolio-wrap .details-link,
+body.dark-mode .certifications .portfolio-wrap .details-link {
+    color: #56ccf2; /* Light blue for dark mode */
 }
 
-
-#certifications .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+body.dark-mode .portfolio .portfolio-wrap .details-link:hover,
+body.dark-mode .certifications .portfolio-wrap .details-link:hover {
+    color: #89d5ff; /* Brighter blue for hover in dark mode */
 }
 
-#certifications .card img {
-    width: 100%;
-    height: 60%; /* Consistent image height */
-    object-fit: fill;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-
-#certifications .card-title {
+/* Limit Title to One Line */
+.portfolio .portfolio-wrap .portfolio-info h4,
+.certifications .portfolio-wrap .portfolio-info h4 {
     font-size: 18px;
     font-weight: 600;
     margin: 10px 0;
     color: #45505b;
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflowing text */
-    text-overflow: ellipsis; /* Add ellipsis for long text */
+    white-space: nowrap; /* Prevents wrapping to a new line */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds "..." to truncated text */
+    text-align: center; /* Center-align the text */
 }
 
-#certifications .card-subtitle {
-    font-size: 14px;
-    color: #6c757d;
-    margin-bottom: 10px;
-    white-space: nowrap;/* Prevent text wrapping */
-    overflow: hidden;/* Hide overflowing text */
-    text-overflow: ellipsis;/* Add ellipsis for long text */
+/* Ensure Uniform Box Height */
+.portfolio .portfolio-wrap,
+.certifications .portfolio-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px; /* Fixed height for uniformity */
 }
 
-#certifications .card-link {
-    color: #007bff;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: auto; /* Push link to the bottom */
-    transition: color 0.3s ease;
+/* Uniform Image Height */
+.portfolio .portfolio-wrap img,
+.certifications .portfolio-wrap img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
-#certifications .card-link:hover {
-    color: #0535bc;
-    text-decoration: underline;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .portfolio .portfolio-wrap,
+    .certifications .portfolio-wrap {
+        width:auto;
+		height: auto; /* Adjust height for smaller screens */
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1206,7 +1206,7 @@ body.dark-mode p {
 }
 
 body.dark-mode .skills-logo {
-    filter: invert(1) hue-rotate(180deg); /* Adjust logos to suit dark mode */
+    filter: invert(1) hue-rotate(180deg) !important; /* Adjust logos to suit dark mode */
 }
 
 
@@ -1259,80 +1259,6 @@ body.dark-mode #header {
     color: #fff; /* White text */
 }
 
-
-/* ------------------------------------
-Dark Mode Styles for Projects 
----------------------------------------*/
-body.dark-mode .portfolio-item .portfolio-wrap {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-/* Dark Mode Styles for Portfolio Filters */
-body.dark-mode #portfolio-filters {
-    margin: 0 auto 25px auto;
-    list-style: none;
-	padding: 10px 15px;
-    text-align: center;
-    border-radius: 50px;
-    padding: 5px 20px;
-    display: inline-block;
-    width: auto; /* Matches light mode size */
-}
-
-
-
-/* Filter Items (Unselected State) */
-body.dark-mode #portfolio-filters li {
-	display: inline-block;
-    margin: 0 10px;
-	padding: 10px 15px;
-    font-size: 14px;
-    cursor: pointer;
-	font-weight: 600;
-	margin: 5px;
-    border-radius: 30px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    color: #666; /* Default unselected text color */
-}
-
-body.dark-mode #portfolio-filters li.filter-active {
-    color: #fff; /* White for active filter */
-    background-color: #0563bb; /* Blue for active background */
-    border-radius: 3px;
-}
-
-
-
-/* ----------------------------------------
-Dark Mode Styles for Certifications 
------------------------------------------*/
-
-body.dark-mode .card {
-    background-color: #333; /* Dark background for certifications */
-    color: #fff; /* White text */
-    border: 1px solid #444; /* Subtle border */
-}
-
-body.dark-mode .card .card-title {
-    color: #fff; /* Ensure title is white */
-}
-
-body.dark-mode .card .card-link {
-    color: #56ccf2; /* Light blue for links */
-}
-
-body.dark-mode .card .card-link:hover {
-    color: #2d9cdb; /* Slightly darker blue on hover */
-}
-
-/* Certifications Section */
-.card {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 
 /* ----------------------------------------
