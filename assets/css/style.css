@@ -620,7 +620,7 @@ section {
 .timeline-section {
     position: relative;
     padding: 60px 20px;
-    background: none; /* No background color */
+    background: none;
 }
 
 #particles-js {
@@ -629,7 +629,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Behind the timeline */
+    z-index: -1;
 }
 
 /* Timeline */
@@ -637,7 +637,8 @@ section {
     position: relative;
     margin: 20px 0;
     padding-left: 40px;
-    border-left: 2px solid #0563bb;
+    border-left: 2px solid #0563bb; /* Default line color */
+    transition: border-color 0.3s ease;
 }
 
 .timeline-item {
@@ -651,7 +652,7 @@ section {
 
 .timeline-icon {
     position: absolute;
-    left: -21px; /* Centers icon on the line */
+    left: -23px; /* Centered with the line */
     top: 0;
     width: 40px;
     height: 40px;
@@ -663,12 +664,12 @@ section {
     align-items: center;
     font-size: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Ensures icon is above the line */
+    z-index: 1;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .timeline-heading {
-    margin-left: 60px; /* Align headings to the right of icons */
+    margin-left: 60px;
     font-size: 18px;
     font-weight: bold;
     color: #0563bb;
@@ -683,6 +684,28 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.timeline-content h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.timeline-content .company-name {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.timeline-content .timeline-duration {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
 .timeline-content ul {
     margin: 0;
     padding-left: 20px;
@@ -691,8 +714,15 @@ section {
 
 .timeline-content ul li {
     font-size: 14px;
-    color: #555; /* Default text color */
+    color: #555;
     line-height: 1.6;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
 }
 
 /* Hover Effects */
@@ -706,14 +736,9 @@ section {
     background-color: #0078e3;
 }
 
-/* Interactive Effects */
-.timeline-item.in-view .timeline-icon {
-    transform: scale(1.2);
-    background-color: #0078e3;
-}
-
+/* Scrolling Line Effect */
 .timeline-item.in-view ~ .timeline {
-    border-left: 2px solid #0078e3;
+    border-left: 2px solid #0078e3; /* Changes color when in view */
 }
 
 /* Dark Mode */
@@ -732,23 +757,24 @@ body.dark-mode .timeline-content {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
+body.dark-mode .timeline-content h4 {
+	color: #56ccf2;
+}
+body.dark-mode .timeline-content .company-name {
+    color:  #777;
+}
+
+body.dark-mode .timeline-content .timeline-duration {
+    color: #636363;
+}
+
 body.dark-mode .timeline-content ul li {
-    color: #bbb; /* Light gray bullets and text */
+    color: #bbb;
 }
 
-/* Timeline Duration */
-.timeline-duration {
-    display: block; /* Separate line */
-    font-size: 14px;
-    color: #999; /* Light color for duration in light mode */
-    margin-bottom: 10px;
+body.dark-mode .divider {
+    border-top: 1px solid #555;
 }
-
-/* Dark Mode for Duration */
-body.dark-mode .timeline-duration {
-    color: #bbb; /* Light gray for duration in dark mode */
-}
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -757,7 +783,7 @@ body.dark-mode .timeline-duration {
     }
 
     .timeline-icon {
-        left: -18px; /* Adjust icon alignment for smaller screens */
+        left: -20px;
     }
 
     .timeline-content {
@@ -766,7 +792,16 @@ body.dark-mode .timeline-duration {
     }
 }
 
-
+/* Particles.js Global Container */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it stays behind all content */
+    pointer-events: none; /* Prevent interaction */
+}
 
 /*--------------------------------------------------------------
 # Portfolio
