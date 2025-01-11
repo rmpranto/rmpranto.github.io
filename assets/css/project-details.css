@@ -73,9 +73,16 @@ html, body {
     border-radius: 2px;
 }
 
-/* Project Image Interactivity */
+
+/* General Styling for Images */
 .portfolio-img {
-    border-radius: 10px;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 600px; /* Optional: Limit the maximum width */
+    object-fit: contain; /* Ensures image scales without distortion */
+	border-radius: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -85,6 +92,46 @@ html, body {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Prevent Overlap on Mobile */
+@media (max-width: 768px) {
+    .portfolio-img {
+        max-width: 100%; /* Ensure the image fits within the container */
+        max-height: 300px; /* Limit height for very tall images */
+    }
+
+    .content {
+        margin-top: 20px; /* Add spacing between the image and text */
+    }
+
+    .row {
+        flex-direction: column; /* Stack image and text vertically */
+        align-items: center; /* Center-align content */
+    }
+}
+
+
+/* Dark Mode Synchronization */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-outline-primary {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+
+
+
+
+
+
 /* Section Titles */
 .content h3 {
     color: #2c3e50;
@@ -93,12 +140,21 @@ html, body {
     margin-top: 20px;
 }
 
+.content h5 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: semi-bold;
+    margin-top: 15px;
+}
+
+
 /* Tools Used */
 .tools-used {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 15px;
+	margin-bottom: 10px;
 }
 
 .tools-used span {

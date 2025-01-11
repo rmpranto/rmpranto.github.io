@@ -7,25 +7,14 @@
     <title>Pizza Sales Dashboard</title>
 	
 	    <!-- Favicons -->
-    <link href="assets/img/favicon/favicon-32x32.png" type="image/png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-	<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
-	<link rel="manifest" href="assets/img/favicon/manifest.json">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon//apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon//favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon//favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 		<!-- Font-awesome-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -59,7 +48,7 @@
     <!-- Header -->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex justify-content-between align-items-center">
-            <a href="../index.html" class="btn-back-to-portfolio">Back to Portfolio</a>	
+            <a href="../index.html#projects" class="btn-back-to-portfolio">Back to Portfolio</a>	
         </div>
     </header>
 
@@ -76,32 +65,47 @@
                 </div>
                 <div class="row">
                     <!-- Image Section -->
-                    <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="../assets/img/projects/Pizza.png" class="img-fluid portfolio-img" alt="Pizza Sales Dashboard">
-                    </div>
+					<div class="col-lg-6 mb-4">
+						<img src="../assets/img/projects/Pizza.png" class="portfolio-img" alt="Pizza Sales Dashboard">
+					</div>
+
                     <!-- Text Section -->
                     <div class="col-lg-6 content" data-aos="fade-left" data-aos-delay="200">
-						<a href="https://github.com/rmpranto/Pizza-Sales-Dashboard_PowerBI" target="_blank" class="btn btn-outline-primary mt-3">
-                            <i class="bx bxl-github"></i> View on GitHub
-                        </a>
-						
-						<a href="https://app.powerbi.com/view?r=eyJrIjoiYTdhNDIzZjYtNmY3Ny00MGQ4LWIzN2EtODgwYmRhZDg1YmI2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" target="_blank" class="btn btn-outline-primary mt-3"> 
-							<i class='bx bxs-bar-chart-square'></i> View on Power BI
-                        </a>
+							<a href="https://github.com/rmpranto/Pizza-Sales-Dashboard_PowerBI" target="_blank" class="btn btn-outline-primary mt-3">
+								<i class="bx bxl-github"></i> View on GitHub
+							</a>
+							<a href="https://app.powerbi.com/view?r=eyJrIjoiYTdhNDIzZjYtNmY3Ny00MGQ4LWIzN2EtODgwYmRhZDg1YmI2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" target="_blank" class="btn btn-outline-primary mt-3">
+								<i class='bx bxs-bar-chart-square'></i> View on Power BI
+							</a>
 						
                         <h3>Project Overview</h3>
                         <p class="text-justify">
-                            Analyzed a real-world business case for a Pizza restaurant to enhance the restaurant's operations
+							Conducted a pizza sales report challenge from Maven Analytics.I'm supposed to be a business 
+							intelligence consultant employed by for a Greek-inspired pizza shop in New Jersey, focusing on 
+							data analysis to enhance operations. The restaurant hired me to assist in using data to boost operations.
+							Analyzed a real-world business case for a Pizza restaurant to enhance the restaurant's operations.
                         </p>
 						
                         <h3>Project Details</h3>
-						
-							<li class="text-justify"> Analyzed 50K+ records to identify patterns in customer demand, operational bottlenecks, and efficiency improvements.</li>
+						 <ul>
+							<li class="text-justify"> Analyzed over 50,000 records to identify patterns in customer demand, operational bottlenecks, and efficiency improvements.</li>
 							<li class="text-justify"> Constructed ETL pipelines, transforming sales data into Power BI insights with advanced DAX measures.</li>
+							<li class="text-justify"> Utilized Microsoft Power BI and MSSQL for data processing and visualization.</li>
+							<li class="text-justify"> Constructed ETL pipelines to transform sales data into actionable insights.</li>
+							<li class="text-justify"> Employed Power Query for data extraction, transformation, and loading.</li>
 							<li class="text-justify"> Developed a dynamic dashboard displaying 15+ KPIs, including sales trends and customer demographics.</li>
 							<li class="text-justify"> Addressed 5 key business questions on inventory management, peak hours, and operations to improve efficiency.</li>
 							<li class="text-justify"> Recommended 7 key improvements projected to increase revenue by 3%, optimizing inventory, labor, and service.</li>
-
+                        </ul>
+						
+						<h3>Key Findings</h3>
+							<ul>
+							<li class="text-justify"> Busiest Days and Times: Peak order volume occurs at 12 PM & 1 PM (lunch) and 5 PM - 6 PM (evening), with Thursdays, Fridays, and Saturdays being the busiest days.</li>
+							<li class="text-justify"> Pizzas Made During Peak Periods: On Thursdays at noon, the restaurant produces 2,520 pizzas.</li>
+							<li class="text-justify"> Best and Worst-Selling Pizzas: The best-selling pizza is the Classic Delux Pizza, while the worst is the Brie Carre Pizza.</li>
+							<li class="text-justify"> Average Order Value: The average order value is approximately $38.30.</li>
+							<li class="text-justify"> Proposed seven strategic improvements projected to increase revenue by 3%, focusing on optimizing inventory, labor, and service.</li>
+							
                         </ul>
                         <h3>Tools Used</h3>
                         <div class="tools-used">
@@ -121,32 +125,32 @@
     </div>
 
     <!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-header">
-      <div class="footer-name">
-        <h3>RAHAT MAKSUD PRANTO</h3>
-      </div>
-      <div class="footer-resume">
-			<a href="https://drive.google.com/file/d/1K89-1QeD7olcOS9pYjgAT3xYVR0M7Xsu/view?usp=sharing"
-              class="resume-btn btn-outline-primary mb-2 rounded-pill">
-                <i class="bx bxs-download"></i>Download Résumé
-			</a>
-      </div>	  
-    </div>
-    <hr class="footer-line">
-    <div class="footer-social">
-			<a href="https://www.linkedin.com/in/rmpranto/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-			<a href="mailto:mail.rmpranto@gmail.com" target="_blank" class="social-link"><i class="fa fa-envelope"></i></a>
-			<a href="https://github.com/rmpranto" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-			<a href="https://wa.link/aofdob" target="_blank" class="social-link"><i class="fa fa-whatsapp"></i></a>
-			<a href="https://join.skype.com/invite/sKhUH0LmTvD0" target="_blank" class="social-link"><i class="fa fa-skype"></i></a>
-			<a href="https://twitter.com/rm_pranto" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-    </div>
-    <p class="footer-text">© 2025 <b>Rahat Maksud Pranto</b>. All Rights Reserved.</br>Designed by<b> Rahat Maksud Pranto</b></p>
-	
-  </div>
-</footer>
+	<footer class="footer">
+	  <div class="container">
+		<div class="footer-header">
+		  <div class="footer-name">
+			<h3>RAHAT MAKSUD PRANTO</h3>
+		  </div>
+		  <div class="footer-resume">
+				<a href="https://drive.google.com/file/d/1K89-1QeD7olcOS9pYjgAT3xYVR0M7Xsu/view?usp=sharing"
+				  class="resume-btn btn-outline-primary mb-2 rounded-pill">
+					<i class="bx bxs-download"></i>Download Résumé
+				</a>
+		  </div>	  
+		</div>
+		<hr class="footer-line">
+		<div class="footer-social">
+				<a href="https://www.linkedin.com/in/rmpranto/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+				<a href="mailto:mail.rmpranto@gmail.com" target="_blank" class="social-link"><i class="fa fa-envelope"></i></a>
+				<a href="https://github.com/rmpranto" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+				<a href="https://wa.link/aofdob" target="_blank" class="social-link"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://join.skype.com/invite/sKhUH0LmTvD0" target="_blank" class="social-link"><i class="fa fa-skype"></i></a>
+				<a href="https://twitter.com/rm_pranto" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+		</div>
+		<p class="footer-text">© 2025 <b>Rahat Maksud Pranto</b>. All Rights Reserved.</br>Designed by<b> Rahat Maksud Pranto</b></p>
+		
+	  </div>
+	</footer>
 
     <!-- Vendor JS Files -->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
@@ -180,6 +184,44 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+	
+	
+	<script>
+	
+	    // Initialize AOS
+			AOS.init({
+				duration: 1000, // Animation duration in milliseconds
+				easing: 'ease-in-out', // Easing function
+				once: true, // Whether animation should happen only once
+				mirror: false, // Whether elements should animate out while scrolling past
+			});
+	
+	      // Back to Portfolio Button
+        document.querySelector(".btn-back-to-portfolio").addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "../index.html#projects";
+        });
+	
+	// Light Dark Enabled
+		const themeToggle = localStorage.getItem("theme") || "light";
+
+		if (themeToggle === "dark") {
+			document.body.classList.add("dark-mode");
+		}
+
+		document.getElementById("theme-toggle").addEventListener("click", () => {
+			document.body.classList.toggle("dark-mode");
+			const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+			localStorage.setItem("theme", theme);
+		});
+		
+	// back to portfolio enabled
+		document.querySelector(".btn-back-to-portfolio").addEventListener("click", () => {
+			window.location.href = "../index.html#projects";
+		});
+</script>
+
+	
 </body>
 
 </html>

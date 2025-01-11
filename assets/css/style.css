@@ -616,64 +616,156 @@ section {
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
-.resume .resume-title {
-    font-size: 26px;
-    font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #45505b;
-}
-
-.resume .resume-item {
-    padding: 0 0 20px 20px;
-    margin-top: -2px;
-    border-left: 2px solid #0563bb;
+/* Timeline Section */
+.timeline-section {
     position: relative;
+    padding: 60px 20px;
+    background: none; /* No background color */
 }
 
-.resume .resume-item h4 {
-    line-height: 18px;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: "Poppins", sans-serif;
-    color: #0563bb;
-    margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
-    font-size: 16px;
-    background: none;
-    padding: 5px 15px;
-    display: inline-block;
-    font-weight: 600;
-    margin-bottom: 10px;
-	color: #BBBBBB;
-}
-
-.resume .resume-item ul {
-    padding-left: 20px;
-}
-
-.resume .resume-item ul li {
-    padding-bottom: 10px;
-}
-
-.resume .resume-item:last-child {
-    padding-bottom: 0;
-}
-
-.resume .resume-item::before {
-    content: "";
+#particles-js {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50px;
-    left: -9px;
     top: 0;
-    background: #fff;
-    border: 2px solid #0563bb;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind the timeline */
 }
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 40px;
+    border-left: 2px solid #0563bb;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -21px; /* Centers icon on the line */
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #0563bb;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensures icon is above the line */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timeline-heading {
+    margin-left: 60px; /* Align headings to the right of icons */
+    font-size: 18px;
+    font-weight: bold;
+    color: #0563bb;
+}
+
+.timeline-content {
+    margin-left: 60px;
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.timeline-content ul li {
+    font-size: 14px;
+    color: #555; /* Default text color */
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.timeline-item:hover .timeline-content {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:hover .timeline-icon {
+    transform: scale(1.2);
+    background-color: #0078e3;
+}
+
+/* Interactive Effects */
+.timeline-item.in-view .timeline-icon {
+    transform: scale(1.2);
+    background-color: #0078e3;
+}
+
+.timeline-item.in-view ~ .timeline {
+    border-left: 2px solid #0078e3;
+}
+
+/* Dark Mode */
+body.dark-mode .timeline {
+    border-left: 2px solid #444;
+}
+
+body.dark-mode .timeline-icon {
+    background: #444;
+    color: #fff;
+}
+
+body.dark-mode .timeline-content {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .timeline-content ul li {
+    color: #bbb; /* Light gray bullets and text */
+}
+
+/* Timeline Duration */
+.timeline-duration {
+    display: block; /* Separate line */
+    font-size: 14px;
+    color: #999; /* Light color for duration in light mode */
+    margin-bottom: 10px;
+}
+
+/* Dark Mode for Duration */
+body.dark-mode .timeline-duration {
+    color: #bbb; /* Light gray for duration in dark mode */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-icon {
+        left: -18px; /* Adjust icon alignment for smaller screens */
+    }
+
+    .timeline-content {
+        margin-left: 50px;
+        padding: 10px 15px;
+    }
+}
+
 
 
 /*--------------------------------------------------------------
@@ -853,9 +945,60 @@ body.dark-mode .certifications .portfolio-wrap .details-link:hover {
 .certifications .portfolio-wrap img {
     width: 100%;
     height: 60%;
-    object-fit: cover;
+    object-fit: fill;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+
+/* General Grid Styling for Portfolio and Certifications */
+.portfolio .row,
+.certifications .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Individual Grid Items */
+.portfolio .portfolio-item,
+.certifications .portfolio-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width on smaller screens */
+}
+
+/* Responsive Grid Adjustments */
+@media (min-width: 992px) {
+    .portfolio .portfolio-item,
+    .certifications .portfolio-item {
+        width: calc(33.333% - 20px); /* 3 items per row with spacing */
+        margin-right: 20px; /* Add spacing between items */
+    }
+
+    .portfolio .portfolio-item:nth-child(3n),
+    .certifications .portfolio-item:nth-child(3n) {
+        margin-right: 0; /* Remove margin for the last item in each row */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio .portfolio-item,
+    .certifications .portfolio-item {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+}
+
+/* Uniform Card Styling */
+.portfolio .portfolio-wrap,
+.certifications .portfolio-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%; /* Full width for responsiveness */
+    max-width: 350px; /* Limit maximum width */
+    margin: 0 auto; /* Center cards horizontally */
 }
 
 /* Responsive Adjustments */
