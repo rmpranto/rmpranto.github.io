@@ -413,154 +413,220 @@ section {
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about {
-    padding: 100px 20px;
+/* About Section */
+.about-section {
     position: relative;
-    z-index: 1;
+    padding: 60px 20px;
+    background: none;
 }
 
-.about .section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.about .section-title h2 {
-    font-size: 36px;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    margin-bottom: 20px;
-    color: #45505b;
-}
-
-.about .section-title h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: #0563bb;
-    margin: 0 auto;
-    margin-top: 10px;
-    border-radius: 2px;
-}
-
-.about .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
-}
-
-.about .content img {
-    flex: 1 1 300px;
-    max-width: 350px;
-    height: auto;
-    border-radius: 50%;
-	background: transparent;
-    border: 6px solid rgba(255, 255, 255, 0.8); /* Light border for emphasis */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Indicate interactivity */
-}
-
-.about .content img:hover {
-    transform: scale(1.1); /* Zoom effect */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.about .content-text {
-    flex: 1 1 500px;
-    padding: 20px;
-    border-left: 4px solid #0563bb;
-    position: relative;
-    background: rgba(255, 255, 255, 0.7); /* Transparent background for visibility */
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.about .content-text::before {
-    content: '';
+#particles-js {
     position: absolute;
     top: 0;
-    left: -20px;
-    width: 10px;
-    height: 10px;
-    background: #0563bb;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(5, 99, 187, 0.8);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-.about .content-text h3 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #0563bb;
-    margin-bottom: 20px;
+.about-section .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-section .section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #45505b;
     position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+
+}
 }
 
-.about .content-text h3::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #0563bb;
-    margin-top: 10px;
-    border-radius: 2px;
+body.dark-mode .about-section .section-title h2 {
+    color: #45505b;
+
 }
 
-.about .content-text p {
+/* About Content */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-image {
+    flex: 1 1 40%;
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+.about-description {
+    flex: 1 1 50%;
     font-size: 16px;
-    color: #555;
     line-height: 1.8;
-    margin-bottom: 20px;
+    color: #333;
     text-align: justify;
 }
 
-.about .content-text ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+body.dark-mode .about-description {
+    color: #ccc;
 }
 
-.about .content-text ul li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #45505b;
+.about-description strong {
+    color: #333; /* Dark for light mode */
+}
+
+body.dark-mode .about-description strong {
+    color: #7b8b9b; /* Light blue for dark mode */
+}
+
+
+
+
+/* Key Stats */
+.about-stats {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
 }
 
-.about .content-text ul li i {
+.about-stats .stat {
+    text-align: center;
+}
+
+.about-stats .stat h3 {
+    font-size: 28px;
     color: #0563bb;
+}
+
+.about-stats .stat p {
+    font-size: 14px;
+    color: #555;
+}
+
+body.dark-mode .about-stats .stat h3 {
+    color: #56ccf2;
+}
+
+body.dark-mode .about-stats .stat p {
+    color: #ccc;
+}
+
+/* Skills */
+.skills {
+    margin-top: 20px;
+}
+
+.skills h3 {
+    text-align: center;
+    margin-bottom: 20px;
     font-size: 20px;
-    margin-right: 10px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    color: #0563bb;
 }
 
-.about .content-text ul li:hover i {
-    transform: scale(1.2);
-    color: #0678e3;
+body.dark-mode .skills h3 {
+    color: #56ccf2;
 }
 
-/* Responsive Layout */
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+body.dark-mode .skill p {
+    color: #ccc;
+}
+
+.progress-bar {
+    width: 100%;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+    height: 14px; /* Increased height for better visibility */
+    position: relative;
+}
+
+body.dark-mode .progress-bar {
+    background: #444;
+}
+
+.progress {
+    height: 100%;
+    background: #0563bb;
+    text-align: right;
+    color: #fff;
+    font-size: 12px;
+    padding-right: 5px;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: flex-end; /* Align text to the right */
+    position: relative;
+}
+
+body.dark-mode .progress {
+    background: #56ccf2;
+}
+
+.progress::after {
+    content: attr(data-percent);
+    position: absolute;
+    right: 5px; /* Adjusts the position slightly to the right */
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px; /* Matches the height of the bar */
+}
+
+body.dark-mode .progress::after {
+    color: #fff;
+}
+
+
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .about .content {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        max-width: 100%;
+    }
+
+    .about-description {
+        font-size: 14px;
+    }
+
+    .about-stats {
         flex-direction: column;
         gap: 20px;
     }
-
-    .about .content img {
-        margin-bottom: 20px;
-    }
-
-    .about .content-text {
-        padding-left: 10px;
-        border-left: 0;
-    }
 }
-
-
 
 /*--------------------------------------------------------------
 # Facts
