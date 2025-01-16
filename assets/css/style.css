@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-# Preloader
+Preloader
 --------------------------------------------------------------*/
 /* Preloader */
 #preloader {
@@ -113,11 +113,9 @@ body.loaded #preloader {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* ================
+/* ================--------------
    Background Particles Animation
-  ================
-*/
-
+  ================------------------*/
 #particles-js{
       height: 100%;
       position: fixed;
@@ -129,15 +127,15 @@ body.loaded #preloader {
 
   }
 
-
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
     [data-aos-delay] {
-        transition-delay: 0s !important;
+        transition-delay: 1s !important;
     }
 }
+
 
 /*--------------------------------------------------------------
 # Header
@@ -167,7 +165,6 @@ body.loaded #preloader {
         margin-left: 100px;
     }
 }
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -236,30 +233,36 @@ body.loaded #preloader {
     display: block;
 }
 
-/* Mobile Navigation */
+/* ------------------------
+Mobile Navigation 
+---------------------------*/
 .mobile-nav-toggle {
-    position: absolute;
-    Left: 15px;
+    position: fixed;
     top: 20px;
-    z-index: 9998;
-    border: 0;
-    background: none;
+    left: 15px;
     font-size: 24px;
-    transition: all 0.4s;
-    outline: none !important;
-    line-height: 1;
+    background: none;
+    border: none;
+    z-index: 9998;
     cursor: pointer;
-    text-align: right;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.mobile-nav-toggle:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 .mobile-nav-toggle i {
-    color: #45505b;
+    color: #45505b; /* Default color */
+    transition: color 0.3s ease;
 }
 
 .mobile-nav-active {
     overflow: hidden;
 }
-
+body.dark-mode .mobile-nav-toggle i {
+    color: #f2f3f5; /* Dark mode color */
+}
 .mobile-nav-active #header {
     left: 0;
 }
@@ -271,6 +274,73 @@ body.loaded #preloader {
 @media (max-width: 768px) {
     /* Mobile styles */
 }
+
+/* Fixed Bar Behind Toggle */
+.mobile-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    background-color: #f2f3f5; /* Light mode background */
+    z-index: 9996; /* Lower than toggle button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Increased padding for better spacing */
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode .mobile-nav-bar {
+    background-color: #222; /* Dark mode background */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+}
+
+/* Toggle Button */
+.mobile-nav-toggle {
+    font-size: 24px;
+    color: #45505b; /* Light mode color */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    z-index: 9998; /* Above the bar */
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .mobile-nav-toggle {
+    color: #f2f3f5; /* Dark mode color */
+}
+
+
+body.mobile-nav-active #header {
+    left: 0; /* Slide into view */
+    transition: left 0.3s ease-in-out;
+}
+
+/* Responsive Behavior */
+@media (min-width: 992px) {
+    .mobile-nav-bar {
+        display: none; /* Hide bar on larger screens */
+    }
+}
+
+.logo {
+    position: absolute;
+    left: 50px; /* Adjust to position the logo */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo img {
+    height: 40px; /* Adjust logo size */
+    width: auto;
+}
+
+
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -306,6 +376,7 @@ body.loaded #preloader {
     right: 0;none
 }
 
+/* Hero Text */
 #hero h1 {
     margin: 0;
     font-size: 64px;
@@ -313,6 +384,7 @@ body.loaded #preloader {
     line-height: 56px;
     color: #45505b;
 }
+
 
 #hero p {
     color: #45505b;
@@ -324,23 +396,45 @@ body.loaded #preloader {
 #hero p span {
     color: #0563bb;
     letter-spacing: 1px;
+	font-weight: semi bold;
 }
 
+/* Social Links */
 #hero .social-links {
     margin-top: 30px;
 }
 
+
 #hero .social-links a {
-    font-size: 24px;
+    font-size: 1.5rem;
     display: inline-block;
     color: #45505b;
     line-height: 1;
     margin-right: 20px;
-    transition: 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #hero .social-links a:hover {
     color: #0563bb;
+	transform: scale(1.2);
+}
+
+/* Buttons */
+#hero .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#hero .btn-outline-primary {
+    color: #fff;
+    border-color: 1px inherit;
+    background: #0563bb;
+}
+
+#hero .btn-outline-primary:hover {
+    background: #56ccf2;
+    color: #fff;
 }
 
 @media (max-width: 992px) {
@@ -443,10 +537,9 @@ section {
     padding-bottom: 10px;
 
 }
-}
 
 body.dark-mode .about-section .section-title h2 {
-    color: #45505b;
+    color: #56ccf2;
 
 }
 
@@ -497,9 +590,9 @@ body.dark-mode .about-description strong {
 }
 
 
-
-
-/* Key Stats */
+/* 
+Key Stats 
+----------------*/
 .about-stats {
     display: flex;
     justify-content: center;
@@ -605,9 +698,6 @@ body.dark-mode .progress::after {
     color: #fff;
 }
 
-
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .about-content {
@@ -627,7 +717,23 @@ body.dark-mode .progress::after {
         gap: 20px;
     }
 }
-
+@media (min-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+	.about-image {
+        max-width: 100%;
+    }
+    }
+	
+@media (min-width: 820px) {
+    .about-content {
+        flex-direction: row;
+    }
+	.about-image {
+        max-width: 50%;
+    }
+    }
 /*--------------------------------------------------------------
 # Facts
 --------------------------------------------------------------*/
@@ -664,23 +770,232 @@ body.dark-mode .progress::after {
     margin: 0;
     font-family: "Raleway", sans-serif;
     font-size: 14px;
+	bottom:5px;
 }
 
-/*--------------------------------------------------------------
-# Skills
---------------------------------------------------------------*/
-.skill {
-    padding: 10px 0;
-    margin: 0 0 6px 0;
-    text-transform: capitalize;
-    display: block;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
+/* ------------------------- 
+Skills Section 
+------------------------*/
+
+.skills {
+    padding: 40px 15px; /* Compact spacing */
+    background: none;/* #f9f9f9 */
+}
+
+body.dark-mode .skills {
+    background: none;/* #222 */
+}
+
+/* Section Title */
+.skills .section-title h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
     color: #45505b;
+    margin-bottom: 30px;
 }
 
+body.dark-mode .skills .section-title h2 {
+    color: #56ccf2;
+}
+
+/* Category Header */
+.skills-category .category-header {
+    font-size: 20px; /* Larger font size */
+    font-weight: bold;
+   /* color: #45505b;*/
+    margin: 15px 0 10px; /* Compact spacing above and below */
+    padding-left: 10px;
+    position: relative;
+    text-align: left; /* Always left-aligned */
+}
+
+.skills-category .category-header::before {
+    content: '•'; /* Bullet or marker */
+    font-size: 24px;
+    color: #0563bb;
+    position: absolute;
+    left: -15px;
+    top: 0;
+}
+
+body.dark-mode .skills-category .category-header {
+    color: #ccc;
+}
+
+body.dark-mode .skills-category .category-header::before {
+    color: #56ccf2;
+}
+
+/* Skills Content */
+.skills-content {
+    display: flex;
+    flex-wrap: wrap;
+	row-gap: 10px;
+    justify-content: flex-start; /* Left-align all items */
+}
+
+.skills-content .col-6 {
+    flex: 0 0 50%; /* 2 items per row on mobile */
+    max-width: 50%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .skills-content .col-md-4 {
+        flex: 0 0 33.333%; /* 3 items per row on tablet */
+        max-width: 33.333%;
+    }
+}
+
+@media (min-width: 992px) {
+    .skills-content .col-lg-2 {
+        flex: 0 0 20%; /* 5 items per row on desktop */
+        max-width: 20%;
+    }
+
+    .skills-content {
+        justify-content: flex-start; /* Ensure left alignment on desktop */
+    }
+}
+
+/* Skill Items */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Compact spacing within items */
+    text-align: center;
+}
+
+/* Skill Icons */
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    background: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skill-icon img {
+    width: 50%;
+    height: 50%;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+
+body.dark-mode .skill-icon {
+    background: #333;
+}
+
+body.dark-mode .skill-icon img {
+    filter: brightness(1);
+}
+
+.skill-icon:hover {
+    transform: scale(1.2);
+    background: #0563bb;
+}
+
+body.dark-mode .skill-icon:hover {
+    background: #56ccf2;
+}
+
+/* Skills Text Alignment */
+.skill {
+    font-size: 14px;
+    font-weight: bold;
+    color: #45505b;
+    margin: 0;
+    text-align: left; /* Left-align text */
+    padding-left: 5px; /* Optional: Add padding for better spacing */
+}
+
+body.dark-mode .skill {
+    color: #ccc; /* Adjust color for dark mode */
+}
+
+/* Specific Styles for BI Method Category */
+.bi-method .skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 15px; Space between items */
+    justify-content: left!important; /* Left align items */
+}
+
+.bi-method .skill-item {
+    display: flex;
+    justify-content: flex-start; /* Left align the content */
+    align-items: center;
+    text-align: left !important; /* Ensure text aligns left */
+    padding: 10px;
+    background: #f9f9f9; /* Light background for light mode */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Left Align Text */
+.bi-method .skill {
+    font-size: 14px;
+    font-weight: 500;
+    color: #45505b; /* Default text color */
+    margin: 0;
+    text-align: left; /* Ensure text aligns left */
+}
+
+/* Hover Effect for BI Method */
+.bi-method .skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode for BI Method */
+body.dark-mode .bi-method .skill-item {
+    background: #333; /* Dark background */
+    color: #f2f3f5; /* Light text */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .bi-method .skill-item:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Grid for BI Method */
+@media (max-width: 768px) {
+    .bi-method .skill-item {
+        flex: 0 0 calc(50% - 10px); /* 2 per row in mobile view */
+        margin-bottom: 15px;
+    }
+
+    .bi-method .skills-content {
+        justify-content: center; /* Center items in mobile view */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .bi-method .skill-item {
+        flex: 0 0 calc(33.333% - 10px); /* 3 per row in tablet view */
+    }
+}
+
+@media (min-width: 992px) {
+    .bi-method .skill-item {
+        flex: 0 0 calc(16.666% - 10px); /* 6 per row in desktop view */
+    }
+
+    .bi-method .skills-content {
+        justify-content: flex-start; /* Left align items in desktop view */
+    }
+}
+
+
+
 /*--------------------------------------------------------------
-# Resume
+Resume
 --------------------------------------------------------------*/
 /* Timeline Section */
 .timeline-section {
@@ -870,7 +1185,7 @@ body.dark-mode .divider {
 }
 
 /*--------------------------------------------------------------
-# Portfolio
+Portfolio
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 Portfolio Filters 
@@ -904,7 +1219,7 @@ Portfolio Filters
 .portfolio #portfolio-filters li.filter-active {
     color: #fff;
     background: #0563bb;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20);
 }
 
 @media (max-width: 768px) {
@@ -929,7 +1244,7 @@ Portfolio Section + certifications
 .portfolio .portfolio-wrap {
     position: relative;
     overflow: hidden;
-    background: #fff;
+    background: inherit;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -939,6 +1254,8 @@ Portfolio Section + certifications
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+	border-style: solid;
+	border-color: 1px inherit;
 }
 
 .portfolio .portfolio-wrap:hover {
@@ -965,7 +1282,7 @@ Portfolio Section + certifications
     font-size: 18px;
     font-weight: 600;
     margin: 10px 0;
-    color: #8aa3ac !important;
+    color: #033b6f !important;
 	text-align: left !important;
 }
 
@@ -977,7 +1294,7 @@ Portfolio Section + certifications
 
 /* Dark Mode for Certifications */
 body.dark-mode .portfolio .portfolio-wrap {
-    background-color: #333;
+    background-color: inherit;
     color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -996,7 +1313,7 @@ body.dark-mode .portfolio .portfolio-wrap:hover {
     display: inline-block;
     margin-top: 10px;
     font-size: 16px;
-    color: #0563bb; /* Default link color */
+    color: #0c64b5; /* Default link color */
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -1025,7 +1342,7 @@ body.dark-mode .certifications .portfolio-wrap .details-link:hover {
     font-size: 18px;
     font-weight: 600;
     margin: 10px 0;
-    color: #45505b;
+    color: #0057ff!important;/*#45505b;*/
     white-space: nowrap; /* Prevents wrapping to a new line */
     overflow: hidden; /* Hides overflowing text */
     text-overflow: ellipsis; /* Adds "..." to truncated text */
@@ -1110,6 +1427,39 @@ body.dark-mode .certifications .portfolio-wrap .details-link:hover {
 		height: auto; /* Adjust height for smaller screens */
     }
 }
+
+
+
+/* Hide certifications by default */
+#certifications .row .col-sm-12 {
+    display: none; /* Hide all certifications initially */
+}
+
+/* Button Styling */
+#toggle-certifications {
+    background: #0563bb;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#toggle-certifications:hover {
+    background: #003f7d;
+}
+
+body.dark-mode #toggle-certifications {
+    background: #56ccf2;
+    color: #222;
+}
+
+body.dark-mode #toggle-certifications:hover {
+    background: #3490d1;
+}
+
 
 /*--------------------------------------------------------------
 Contact
@@ -1198,7 +1548,7 @@ Contact
 
 .contact-form .btn-submit {
   
-  background-color: #007bff;
+  background-color: inherit;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -1214,7 +1564,7 @@ Contact
 }
 
 .contact-form .btn-submit:hover {
-  background-color: #0056b3;
+  background-color: #007bff;
 }
 
 /* Responsive Design */
@@ -1254,8 +1604,8 @@ Contact
 --------------------------------------------------------------*/
 /* Footer Section */
 .footer {
-  background: #f7f8f9;; /* Footer background */
-  color: #45505b;; /* Footer text color */
+  background: #f7f8f9; /* Footer background */
+  color: #45505b; /* Footer text color */
   padding: 20px 10px;
   text-align: center;
   /* border-top: 3px solid #007bff;*/
@@ -1275,29 +1625,29 @@ Contact
 
 .footer-name h3 {
   font-size: 1.5rem;
-  color: var(--text-light); /* Name color */
+  color: #a7a7a7 !important; /* Name color */
   margin: 0;
 }
 
 .footer-resume .resume-btn {
-  background: #3498db; /* Resume button background */
+  background: #0563bb; /* Resume button background */
   color: #ffffff; /* Resume button text */
   padding: 10px 15px;
   font-size: 0.9rem;
-  border: none;
+  border: inherit;
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
 .footer-resume .resume-btn:hover {
-  background: #0563bb; /* Hover effect for button */
+  background: #3498db; /* Hover effect for button */
 }
 
 .footer-line {
   border: none;
-  height: 2px;
-  background: #ffffff; /* Line color */
+  height: 0.5px;
+  background:#6b6767; /* Line color */
   margin: 15px 0;
 }
 
@@ -1309,7 +1659,7 @@ Contact
 }
 
 .social-link {
-  color: #3498db; /* Social icon color */
+  color: #0563bb; /* Social icon color */
   font-size: 1.5rem;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -1317,7 +1667,7 @@ Contact
 
 .social-link:hover {
   transform: scale(1.2);
-  color: #0563bb; /* Social icon hover effect */
+  color: #3498db; /* Social icon hover effect */
 }
 
 .footer-text {
@@ -1372,24 +1722,28 @@ Theme Switcher Button
     z-index: 1000;
 }
 
+/* General Styles for Theme Switcher */
 #theme-toggle {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    border: 2px solid #ddd;
-    border-radius: 20px;
-    padding: 5px 15px;
+    gap: 8px; /* Space between icon and text */
+    padding: 10px 15px;
     font-size: 14px;
+    color: #45505b; /* Default text color */
+    background: none;
+    border: 1px solid #e0e0e0; /* Light border for visibility */
+    border-radius: 25px; /* Rounded button */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 #theme-toggle:hover {
-    background: #f1f1f1;
+    background-color: #f2f3f5; /* Light background on hover */
+    border-color: #ccc; /* Slightly darker border */
 }
 
 #theme-toggle i {
+    font-size: 18px; /* Icon size */
     transition: color 0.3s ease;
 }
 
@@ -1402,9 +1756,16 @@ Theme Switcher Button
 
 
 /* Dark Mode Styles */
+
+/* Dark Mode Styles */
 body.dark-mode #theme-toggle {
-    background: #333;
-    border-color: #444;
+    color: #f2f3f5; /* Light text for dark mode */
+    border-color: #444; /* Dark border for dark mode */
+}
+
+body.dark-mode #theme-toggle:hover {
+    background-color: #333; /* Darker background on hover */
+    border-color: #555; /* Slightly lighter border */
 }
 
 body.dark-mode #theme-toggle i {
@@ -1429,7 +1790,7 @@ body.dark-mode {
 }
 
 body.dark-mode a {
-    color: #FA4032; /* Update this color to align with your design */
+   /* color: #FA4032;*/ /* Update this color to align with your design */
 }
 
 /* Fixing Menu Background */
@@ -1440,7 +1801,9 @@ body.dark-mode .nav-menu ul {
 
 /* Text and Logo Adjustments */
 body.dark-mode h1, 
-body.dark-mode h2, 
+body.dark-mode h2{
+	color: #56ccf2;
+}
 body.dark-mode h3, 
 body.dark-mode h4, 
 body.dark-mode h5, 
@@ -1450,7 +1813,7 @@ body.dark-mode p {
 }
 
 body.dark-mode .skills-logo {
-    filter: invert(1) hue-rotate(180deg) !important; /* Adjust logos to suit dark mode */
+    filter: hue-rotate(45deg) !important; /* Adjust logos to suit dark mode */
 }
 
 
@@ -1464,7 +1827,28 @@ body.dark-mode #theme-toggle i.bx-sun {
     color: #FFCC33; /* Bright yellow for the sun */
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #theme-toggle {
+        padding: 8px 12px; /* Smaller padding for mobile */
+        font-size: 12px; /* Smaller font size for mobile */
+    }
 
+    #theme-toggle i {
+        font-size: 16px; /* Adjust icon size for mobile */
+    }
+}
+
+@media (min-width: 992px) {
+    #theme-toggle {
+        padding: 12px 20px; /* Larger padding for desktop */
+        font-size: 16px; /* Larger font size for desktop */
+    }
+
+    #theme-toggle i {
+        font-size: 20px; /* Larger icon size for desktop */
+    }
+}
 
 
 /*------------------------------------ 
@@ -1499,22 +1883,13 @@ body.dark-mode .contact-form button {
 
 /* Ensure Header/Menu Looks Correct in Dark Mode */
 body.dark-mode #header {
-    background-color: #222; /* Dark background for header */
-    color: #fff; /* White text */
+    background-color: inherit; /* #222; Dark background for header */
+    color: #fff; /* ; White text */
 }
-
-
 
 /* ----------------------------------------
 
 -----------------------------------------*/
-
-
-
-
-
-
-
 
 * {
     transition: background-color 0.3s, color 0.3s, filter 0.3s;

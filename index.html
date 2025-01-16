@@ -45,6 +45,7 @@
 
 <body>
 
+<!-- ======= Preloader ======= -->
 <div id="preloader">
     <div class="spinner">
         <div class="double-bounce1"></div>
@@ -57,29 +58,34 @@
     <i class="icofont-navigation-menu"></i>
 </button>
 
+		<div class="mobile-nav-bar">
+
+		</div>
+
+
 <!-- ======= Header ======= -->
 <header id="header" class="d-flex flex-column justify-content-center">
-
     <nav class="nav-menu">
         <ul>
             <li class="active"><a href="#hero"><i class="bx bx-home"></i><span>Home</span></a></li>
             <li><a href="#about"><i class="bx bx-user"></i><span>About</span></a></li>
             <li><a href="#skills"><i class="bx bx-server"></i><span>Skills</span></a></li>
-			<li><a href="#certifications"><i class='bx bx-badge-check'></i><span>Certifications</span></a></li>
-			<li><a href="#projects"><i class="bx bx-book-content"></i><span>Projects</span></a></li>
+            <li><a href="#certifications"><i class="bx bx-badge-check"></i><span>Certifications</span></a></li>
+            <li><a href="#projects"><i class="bx bx-book-content"></i><span>Projects</span></a></li>
             <li><a href="#resume"><i class="bx bx-file-blank"></i><span>Resume</span></a></li>
-            <!--<li><a href="#publications"><i class='bx bxs-bookmark'></i><span>Publications</span></a></li>-->
-            <li><a href="#Contact"><i class='bx bxs-contact'></i><span>Contact</span></a></li>
+            <li><a href="#contact"><i class="bx bxs-contact"></i><span>Contact</span></a></li>
         </ul>
-    </nav><!-- .nav-menu -->
-
-    </div>
+		
+		
+    </nav>
 </header>
+
 
 <!--=======End Header=======-->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center">
+
 	<div class="theme-switcher">
         <button id="theme-toggle" aria-label="Toggle Dark Mode">
             <i id="theme-icon" class="bx bx-moon"></i>
@@ -105,7 +111,7 @@
             <a href="https://drive.google.com/file/d/1K89-1QeD7olcOS9pYjgAT3xYVR0M7Xsu/view?usp=sharing"class="btn btn-outline-primary mb-2 rounded-pill">
                 <i class="fa-solid fa-download"></i> Download Résumé
 			</a>
-			<a class="btn btn-outline-primary mb-2 rounded-pill" href="#Contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"> <i class="fa-solid fa-address-book"></i> Hire Me</a>
+			<a class="btn btn-outline-primary mb-2 rounded-pill" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor"> <i class="fa-solid fa-address-book"></i> Hire Me</a>
         </div>
 		
     </div>
@@ -119,7 +125,7 @@
 	<section id="about" class="about-section">
     <!-- Particles Background -->
     <div id="particles-js"></div>
-    <div class="container">
+        <div class="container" >
         <!-- Section Title -->
         <div class="section-title">
             <h2>About Me</h2>
@@ -127,12 +133,12 @@
 
         <div class="about-content">
             <!-- About Image -->
-            <div class="about-image">
+            <div class="about-image" data-aos="fade-right">
                 <img src="assets/img/about-pic.png" alt="About Me" class="responsive-img">
             </div>
 
             <!-- About Description -->
-            <div class="about-description">
+            <div class="about-description" data-aos="fade-up">
                 <p>
                     I am a passionate software engineering graduate from AIUB, with a strong focus on the data-driven landscape. 
                     My journey in the tech world has ignited a profound interest in <strong>data analysis</strong>, 
@@ -211,96 +217,305 @@
 	
 
     <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills">
+<section id="skills" class="skills">
         <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-                <h2>Skills</h2>
-            </div> 	
-			
-			<div>
-                <h4 class="font-weight-bold pb-3 pt-4">BI Method</h4>
-                <div class="row skills-content text-center">
-                    
-             
-                    <div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Power Query</p>
-                    </div>
+        <div class="section-title">
+            <h2>Skills</h2>
+        </div>
 
-                    <div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">ETL</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Data Modeling</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">DAX</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Excel Pivot Tables</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Data Analysis</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Dashboard</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                       <!-- <img src="assets/icons/" alt="Visualization"/> -->
-                        <p class="skill">Visualization</p>
-                    </div>
-           
-                </div>
+        <!-- BI Method -->
+<div class="skills-category bi-method">
+    <h4 class="category-header">BI Method</h4>
+    <div class="row skills-content">
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">Power Query</p>
             </div>
-			
-			<div>
-                <h4 class="font-weight-bold pb-3 pt-4">Visualization</h4>
-                <div class="row skills-content text-center">
-                    
-             
-                    <div class="col-4 col-md-2">
-                        <img src="assets/icons/pb.png" alt="Power BI"/>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">ETL</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">DAX</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">Excel Pivot Tables</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">Data Analysis</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">Dashboard</p>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="skill-item">
+                <p class="skill">Visualization</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <hr class="divider">
+        <!-- Visualization -->
+        <div class="skills-category">
+            <h4 class="category-header">Visualization</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/pb.png" alt="Power BI" />
+                        </div>
                         <p class="skill">Power BI</p>
                     </div>
-
-                    <div class="col-4 col-md-2">
-                        <img src="assets/icons/ex.png" alt="Microsoft Excel"/>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/ex.png" alt="Microsoft Excel" />
+                        </div>
                         <p class="skill">Microsoft Excel</p>
                     </div>
-           
                 </div>
             </div>
-
-            <div>
-                <h4 class="font-weight-bold pb-3">Programming Language</h4>
-                <div class="row skills-content text-center">
-				
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/sql.png" alt="SQL"/>
+        </div>
+                    <hr class="divider">
+        <!-- Programming Languages -->
+        <div class="skills-category">
+            <h4 class="category-header">Programming Languages</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/sql.png" alt="SQL" />
+                        </div>
                         <p class="skill">SQL</p>
                     </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/python.png" alt="Python"/>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/python.png" alt="Python" />
+                        </div>
                         <p class="skill">Python</p>
                     </div>
-					
-					 <div class="col-4 col-md-2">
-                        <img src="assets/icons/html.png" alt="HTML"/>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/html.png" alt="HTML" />
+                        </div>
                         <p class="skill">HTML</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		                    <hr class="divider">
+		        <!-- Database -->
+        <div class="skills-category">
+            <h4 class="category-header">Database</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/postgre.png " alt="PostgreSQL" />
+                        </div>
+                        <p class="skill">PostgreSQL</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/oracle.png" alt="Oracle" />
+                        </div>
+                        <p class="skill">Oracle</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/mysql.png" alt="MySQL" />
+                        </div>
+                        <p class="skill">MySQL</p>
+                    </div>
+                </div>
+				<div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/mssql.jpg" alt="MSSQL" />
+                        </div>
+                        <p class="skill">MSSQL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <hr class="divider">
+<!-- Version Control -->
+        <div class="skills-category">
+            <h4 class="category-header">Version Control</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/git.png " alt="Git" />
+                        </div>
+                        <p class="skill">Git</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/github.png" alt="GitHub" />
+                        </div>
+                        <p class="skill">GitHub</p>
+                    </div>
+                </div>
+            </div>
+        </div>	
+		                    <hr class="divider">
+<!-- Project Management Tool -->
+        <div class="skills-category">
+            <h4 class="category-header">Project Management Tool</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/jira.png " alt="jira" />
+                        </div>
+                        <p class="skill">Jira</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/trello.png" alt="Trello" />
+                        </div>
+                        <p class="skill">Trello</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <hr class="divider">
+<!-- Miscellaneous -->
+        <div class="skills-category">
+            <h4 class="category-header">Miscellaneous</h4>
+            <div class="row skills-content">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/stat.png " alt="Statistics" />
+                        </div>
+                        <p class="skill">Statistics</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/ai.png" alt="Trello" />
+                        </div>
+                        <p class="skill">AI</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/iot.png" alt="IoT" />
+                        </div>
+                        <p class="skill">IoT</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/agile.png" alt="Agile" />
+                        </div>
+                        <p class="skill">Agile</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/sdlc.png" alt="SDLC" />
+                        </div>
+                        <p class="skill">SDLC</p>
+                    </div>
+                </div>
+				                          
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/rdbms.png" alt="RDBMS" />
+                        </div>
+                        <p class="skill">RDBMS</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/analysis.png" alt="Data Analysis" />
+                        </div>
+                        <p class="skill">Data Analysis</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/dash.png" alt="Dashboard" />
+                        </div>
+                        <p class="skill">Dashboard</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/manual.png" alt="Manual Testing" />
+                        </div>
+                        <p class="skill">Manual Testing</p>
+                    </div>
+                </div>     
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/uml.png" alt="UML Diagram" />
+                        </div>
+                        <p class="skill">UML Diagram</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/canva.png" alt="Canva" />
+                        </div>
+                        <p class="skill">Canva</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <img src="assets/icons/filmora.png" alt="Filmora" />
+                        </div>
+                        <p class="skill">Filmora</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>		
+    </div>
+</section>
+
+          <!--  <div>
+
                     </div>
 					<!--
                     <div class="col-4 col-md-2">
@@ -319,142 +534,21 @@
                     </div>
 					
 					-->
-                </div>
+               <!-- </div>
             </div>
-
-            <div>
-                <h4 class="font-weight-bold pb-3 pt-4">Database</h4>
-                <div class="row skills-content text-center">
-                    
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/postgre.png" alt="PostgreSQL"/>
-                        <p class="skill">PostgreSQL</p>
-                    </div>
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/oracle.png" alt="Oracle"/>
-                        <p class="skill">Oracle</p>
-                    </div>
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/mysql.png" alt="MySQL"/>
-                        <p class="skill">MySQL</p>
-                    </div>
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/mssql.jpg" alt="MSSQL"/>
-                        <p class="skill">MSSQL</p>
-					</div>
-					
-                </div>
-            </div>
-			
-			<div>
-                <h4 class="font-weight-bold pb-3 pt-4">Version Control</h4>
-                <div class="row skills-content text-center">
-                    
-                    <div class="col-4 col-md-2">
-                        <img src="assets/icons/git.png" alt="Git"/>
-                        <p class="skill">Git</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/github.png" alt="GitHub"/>
-                        <p class="skill">GitHub</p>
-                    </div>
-					
-                </div>
-            </div>
-			
-            <div>
-                <h4 class="font-weight-bold pb-3 pt-4">Project Management Tool</h4>
-                <div class="row skills-content text-center">
-				
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/jira.png" alt="Jira"/>
-                        <p class="skill">Jira</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/trello.png" alt="Trello"/>
-                        <p class="skill">Trello</p>
-                    </div>
-					
-                </div>
-            </div>
-			
-			<div>
-                <h4 class="font-weight-bold pb-3 pt-4">Miscellaneous</h4>
-                <div class="row skills-content text-center">
-                    
-             
-                    <div class="col-4 col-md-2"><img src="assets/icons/stat.png" alt="Statistics"/><p class="skill">Statistics</p></div>
-					<div class="col-4 col-md-2"><img src="assets/icons/ai.png" alt="AI"/> <p class="skill">AI</p></div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/iot.png" alt="IoT"/> 
-                        <p class="skill">IoT</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/agile.png" alt="Agile"/> 
-                        <p class="skill">Agile</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/sdlc.png" alt="SDLC"/> 
-                        <p class="skill">SDLC</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/rdbms.png" alt="RDBMS"/>
-                        <p class="skill">RDBMS</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/analysis.png" alt="Data Analysis"/>
-                        <p class="skill">Data Analysis</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                        <img src="assets/icons/dash.png" alt="Dashboard"/>
-                        <p class="skill">Dashboard</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                       <img src="assets/icons/manual.png" alt="Manual Testing"/>
-                        <p class="skill">Manual Testing</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                       <img src="assets/icons/uml.png" alt="UML Diagram"/>
-                        <p class="skill">UML Diagram</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                       <img src="assets/icons/canva.png" alt="Canva"/>
-                        <p class="skill">Canva</p>
-                    </div>
-					
-					<div class="col-4 col-md-2">
-                       <img src="assets/icons/filmora.png" alt="Filmora"/>
-                        <p class="skill">Filmora</p>
-                    </div>
-           
-                </div>
-            </div>
-
-		</div>
-       
-    </section><!-- End Skills Section -->
+		
+<!-- End Skills Section -->
 	
 	    <!-- ======= Certifications Section ======= -->
 		
 <section id="certifications" class="portfolio">
-    <div class="container">
+        <div class="container" data-aos="fade-up">
         <div class="section-title">
             <h2>Certifications</h2>
         </div>
-        <div class="row">
+        <div class="row"
 		
-            <!-- Certification 1 -->
+            <!-- Certification -->
             <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div class="portfolio-wrap">
                     <img src="assets/img/certifications/Asql.jpg" alt="Associate Data Analyst in SQL">
@@ -594,8 +688,15 @@
 			<!-- Certification 13 -->
 			
         </div>
+		
+        <!-- Show All / View Less Button -->
+        <div class="text-center mt-4">
+            <button id="toggle-certifications" class="btn btn-primary">Show All</button>
+        </div>
+		
     </div>
 </section>
+
 
 <!-- End Certifications Section -->
 	
@@ -736,6 +837,7 @@
 					</div>
 				</div>
 				
+				
 				<!--
 			 
 
@@ -787,9 +889,9 @@
     <!-- ======= Resume Section ======= -->
 <section id="resume" class="timeline-section">
 
-    <div class="container">
+        <div class="container" data-aos="fade-up">
         <div class="section-title">
-            <h2>Resume</h2>
+            <h2>Résumé</h2>
         </div>
 
         <!-- Timeline -->
@@ -918,7 +1020,7 @@
 	
 	<!-- ======= Contact Section ======= -->
  
-<section id="Contact" class="contact-section">
+<section id="contact" class="contact-section">
 <div id="particles-js"></div>
   <div class="container"data-aos="fade-up">
 			<div class="section-title">
@@ -953,7 +1055,7 @@
 
 	<!-- ======= Footer ======= -->
 <footer class="footer">
-  <div class="container">
+        <div class="container" data-aos="fade-up">
     <div class="footer-header">
       <div class="footer-name">
         <h3>RAHAT MAKSUD PRANTO</h3>
@@ -1137,36 +1239,8 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    // Initialize Particles.js
-    particlesJS.load('particles-js', 'assets/js/particles-config.json', function () {
-        console.log('Particles.js loaded.');
-    });
 
-    // Interactive Timeline
-    const timelineItems = document.querySelectorAll('.timeline-item');
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                } else {
-                    entry.target.classList.remove('in-view');
-                }
-            });
-        },
-        { threshold: 0.5 }
-    );
-
-    timelineItems.forEach((item) => {
-        observer.observe(item);
-    });
-</script>
-
-
-
-<script>
+<script>//resume timeline script
     const timelineItems = document.querySelectorAll('.timeline-item');
 
     const observer = new IntersectionObserver(
@@ -1190,6 +1264,154 @@ Copy code
     });
 </script>
 
+<script>// view all certifications script
+	document.addEventListener('DOMContentLoaded', function () {
+    const certificationsContainer = document.querySelector('#certifications .row');
+    const certifications = certificationsContainer.querySelectorAll('.col-sm-12');
+    const toggleButton = document.getElementById('toggle-certifications');
+
+    // Number of certifications to show initially
+    const visibleCount = 6;
+    let isExpanded = false;
+
+    // Function to update certification visibility
+    const updateCertificationsView = () => {
+        certifications.forEach((certification, index) => {
+            if (index < visibleCount || isExpanded) {
+                certification.style.display = 'block'; // Show certification
+            } else {
+                certification.style.display = 'none'; // Hide certification
+            }
+        });
+
+        // Update button text
+        toggleButton.textContent = isExpanded ? 'View Less' : 'Show All';
+    };
+
+    // Initialize view
+    updateCertificationsView();
+
+    // Add event listener to the button
+    toggleButton.addEventListener('click', () => {
+        isExpanded = !isExpanded; // Toggle the expanded state
+        updateCertificationsView();
+    });
+});
+</script>
+
+<script>//nav positionting fix
+$(document).ready(function () {
+    // Smooth scroll for navigation menu and links with .scrollto classes
+    $(document).on('click', '.nav-menu a, .scrollto', function (e) {
+        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+            const target = $(this.hash);
+            if (target.length) {
+                e.preventDefault();
+
+                const scrollto = target.offset().top - 50; // Adjust for header height
+
+                $('html, body').animate({
+                    scrollTop: scrollto
+                }, 1500, 'easeInOutExpo');
+
+                // Update URL hash
+                window.history.pushState(null, null, this.hash);
+
+                // Update active class
+                if ($(this).parents('.nav-menu, .mobile-nav').length) {
+                    $('.nav-menu .active, .mobile-nav .active').removeClass('active');
+                    $(this).closest('li').addClass('active');
+                }
+
+                // Close mobile menu if open
+                if ($('body').hasClass('mobile-nav-active')) {
+                    $('body').removeClass('mobile-nav-active');
+                    $('.mobile-nav-toggle i').toggleClass('bx-menu bx-x');
+                }
+                return false;
+            }
+        }
+    });
+
+    // Activate smooth scroll on page load with hash links in the URL
+    if (window.location.hash) {
+        const initial_nav = window.location.hash;
+        const target = $(initial_nav);
+        if (target.length) {
+            const scrollto = target.offset().top - 50; // Adjust for header height
+            $('html, body').animate({
+                scrollTop: scrollto
+            }, 1500, 'easeInOutExpo');
+        }
+    }
+
+    // Toggle mobile navigation
+    $(document).on('click', '.mobile-nav-toggle', function () {
+        const body = $('body');
+        body.toggleClass('mobile-nav-active');
+        $('.mobile-nav-toggle i').toggleClass('bx-menu bx-x');
+    });
+	
+	$(document).on('click', '.mobile-nav-toggle', function () {
+    console.log('Mobile nav toggle clicked'); // Check if this logs
+    const body = $('body');
+    body.toggleClass('mobile-nav-active');
+    $('.mobile-nav-toggle i').toggleClass('bx-menu bx-x');
+});
+
+
+    // Close mobile menu when clicking outside
+    $(document).click(function (e) {
+        const container = $(".mobile-nav-toggle");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if ($('body').hasClass('mobile-nav-active')) {
+                $('body').removeClass('mobile-nav-active');
+                $('.mobile-nav-toggle i').toggleClass('bx-menu bx-x');
+            }
+        }
+    });
+	
+	
+
+    // Navigation active state on scroll
+    const nav_sections = $('section');
+    const main_nav = $('.nav-menu, #mobile-nav');
+
+    $(window).on('scroll', function () {
+        const cur_pos = $(this).scrollTop() + 200;
+
+        nav_sections.each(function () {
+            const top = $(this).offset().top,
+                bottom = top + $(this).outerHeight();
+
+            if (cur_pos >= top && cur_pos <= bottom) {
+                main_nav.find('li').removeClass('active');
+                const id = $(this).attr('id');
+                main_nav.find('a[href="#' + id + '"]').parent('li').addClass('active');
+
+                // Update URL hash dynamically
+                window.history.replaceState(null, null, '#' + id);
+            }
+        });
+
+        // Default active state for home when at the top of the page
+        if ($(this).scrollTop() < 200) {
+            main_nav.find('li').removeClass('active');
+            main_nav.find('li:first').addClass('active');
+            window.history.replaceState(null, null, '#hero'); // Reset to home section
+        }
+    });
+
+    // Back to top button functionality
+    $('.back-to-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1500, 'easeInOutExpo');
+        return false;
+    });
+});
+
+</script>
 
 </body>
 
