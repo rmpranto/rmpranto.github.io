@@ -238,7 +238,7 @@ Mobile Navigation
 ---------------------------*/
 .mobile-nav-toggle {
     position: fixed;
-    top: 20px;
+    top: 15px;
     left: 15px;
     font-size: 24px;
     background: none;
@@ -282,7 +282,7 @@ body.dark-mode .mobile-nav-toggle i {
     left: 0;
     width: 100%;
     height: 60px; /* Adjust height as needed */
-    background-color: #f2f3f5; /* Light mode background */
+    background-color: inherit; /* Light mode background */
     z-index: 9996; /* Lower than toggle button */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
     display: flex;
@@ -294,7 +294,7 @@ body.dark-mode .mobile-nav-toggle i {
 
 /* Dark Mode */
 body.dark-mode .mobile-nav-bar {
-    background-color: #222; /* Dark mode background */
+    background-color: inherit; /* Dark mode background */
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 }
@@ -351,6 +351,12 @@ body.mobile-nav-active #header {
     background: url(../img/header.jpg) top right no-repeat;
     background-size: cover;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden; /* Prevent overflow for animations */
 }
 
 #hero .parallax {
@@ -360,23 +366,12 @@ body.mobile-nav-active #header {
     position: relative;
 }
 
-@media (min-width: 992px) {
-    #hero {
-        padding-left: 160px;
-    }
+/* Hero Content */
+#hero .hero-content {
+    flex: 1;
+    max-width: 600px; /* Adjust width for larger screens */
 }
 
-#hero:before {
-    content: "";
-    background: ;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;none
-}
-
-/* Hero Text */
 #hero h1 {
     margin: 0;
     font-size: 64px;
@@ -384,7 +379,6 @@ body.mobile-nav-active #header {
     line-height: 56px;
     color: #45505b;
 }
-
 
 #hero p {
     color: #45505b;
@@ -396,14 +390,13 @@ body.mobile-nav-active #header {
 #hero p span {
     color: #0563bb;
     letter-spacing: 1px;
-	font-weight: semi bold;
+    font-weight: 600;
 }
 
 /* Social Links */
 #hero .social-links {
     margin-top: 30px;
 }
-
 
 #hero .social-links a {
     font-size: 1.5rem;
@@ -416,7 +409,7 @@ body.mobile-nav-active #header {
 
 #hero .social-links a:hover {
     color: #0563bb;
-	transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 /* Buttons */
@@ -428,22 +421,95 @@ body.mobile-nav-active #header {
 
 #hero .btn-outline-primary {
     color: #fff;
-    border-color: 1px inherit;
     background: #0563bb;
+    border: 1px solid #0563bb;
+    border-radius: 25px; /* Rounded button */
 }
 
 #hero .btn-outline-primary:hover {
-    background: #56ccf2;
+    background: #148af9;
     color: #fff;
 }
 
+/* Hero Image */
+#hero .hero-image {
+    flex: 1;
+    max-width: 400px; /* Limit the image size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero Image with Floating Animation */
+#hero .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Circular image */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Default shadow for light mode */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.3s ease;
+    animation: float 6s ease-in-out infinite; /* Floating effect */
+}
+
+/* Hover Effects */
+#hero .hero-image img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    filter: brightness(1.1); /* Slight brightness boost */
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0); /* Starting and ending position */
+    }
+    50% {
+        transform: translateY(-10px); /* Slight upward movement */
+    }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode #hero .hero-image img {
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+}
+
+body.dark-mode #hero .hero-image img:hover {
+    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.2); /* Enhanced shadow for dark mode */
+    filter: brightness(1.2); /* Slightly more brightness for dark mode */
+}
+
+
+/* Content Fade-In Animation */
+#hero .hero-content {
+    animation: fadeIn 1.5s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    animation-fill-mode: forwards; /* Keep the final state */
+    animation-delay: 0.5s; /* Slight delay for a smooth entrance */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Slight upward movement */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
 @media (max-width: 992px) {
     #hero {
         text-align: center;
+        flex-direction: column-reverse; /* Stack content with image on top */
+    }
+
+    #hero .hero-content {
+        max-width: 100%; /* Full width for mobile */
     }
 
     #hero h1 {
-        font-size: 32px;
+        font-size: 28px;
         line-height: 36px;
     }
 
@@ -451,6 +517,41 @@ body.mobile-nav-active #header {
         margin-top: 10px;
         font-size: 20px;
         line-height: 24px;
+    }
+
+    #hero .hero-image {
+        max-width: 300px; /* Smaller image for mobile */
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    #hero {
+        padding-left: 160px;
+    }
+
+    #hero .hero-content h1 {
+        font-size: 56px;
+    }
+}
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column-reverse; /* Stack content, image on top */
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%; /* Full width for mobile */
+    }
+
+    .hero-image {
+        max-width: 300px; /* Smaller image for mobile */
+        margin-bottom: 20px;
     }
 }
 
@@ -815,7 +916,7 @@ body.dark-mode .skills .section-title h2 {
     font-size: 24px;
     color: #0563bb;
     position: absolute;
-    left: -15px;
+    left: -5px;
     top: 0;
 }
 
@@ -992,7 +1093,9 @@ body.dark-mode .bi-method .skill-item:hover {
     }
 }
 
-
+    .skilla {
+        padding-left: 160px;
+    }
 
 /*--------------------------------------------------------------
 Resume
@@ -1198,7 +1301,7 @@ Portfolio Filters
     background: #fff;
     border-radius: 50px;
     padding: 5px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0.1, 0, 0, 0.2);
 }
 
 .portfolio #portfolio-filters li {
@@ -1208,7 +1311,7 @@ Portfolio Filters
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #45505b;
+    color: inherit;
     margin: 5px;
     border-radius: 30px;
     transition: all 0.3s ease-in-out;
@@ -1219,7 +1322,7 @@ Portfolio Filters
 .portfolio #portfolio-filters li.filter-active {
     color: #fff;
     background: #0563bb;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 4px 8px rgba(0.1, 0, 0, 0.20);
 }
 
 @media (max-width: 768px) {
@@ -1361,11 +1464,14 @@ body.dark-mode .certifications .portfolio-wrap .details-link:hover {
 /* Uniform Image Height */
 .portfolio .portfolio-wrap img,
 .certifications .portfolio-wrap img {
-    width: 100%;
-    height: 60%;
+	width: 100%; /* Makes the image take full width of the parent */
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; 
     object-fit: fill;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+	
+
 }
 
 /* General Grid Styling for Portfolio and Certifications */
@@ -1439,7 +1545,7 @@ body.dark-mode .certifications .portfolio-wrap .details-link:hover {
 #toggle-certifications {
     background: #0563bb;
     color: #fff;
-    border: none;
+    border: 1px inherit;
     padding: 10px 20px;
     font-size: 14px;
     border-radius: 5px;
@@ -1548,7 +1654,7 @@ Contact
 
 .contact-form .btn-submit {
   
-  background-color: inherit;
+  background-color: #0563bb;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -1591,7 +1697,7 @@ Contact
   }
 
   .contact-form .btn-submit {
-    width: 50%; /* Make button full-width on small screens */
+    width: 70%; /* Make button full-width on small screens */
     float: none;
     text-align: center;
   }
@@ -1625,7 +1731,7 @@ Contact
 
 .footer-name h3 {
   font-size: 1.5rem;
-  color: #a7a7a7 !important; /* Name color */
+  color: #45505b !important; /* Name color */
   margin: 0;
 }
 
@@ -1672,7 +1778,7 @@ Contact
 
 .footer-text {
   font-size: 0.9rem;
-  color: var(--text-muted); /* Footer text color */
+  color: #45505b !important; /* Footer text color */
 }
 
 /* Responsive Design */
@@ -1717,9 +1823,9 @@ Theme Switcher Button
 ---------------------------*/
 .theme-switcher {
     position: absolute;
-    top: 20px;
+    top: 10px;
     Right: 20px;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 /* General Styles for Theme Switcher */
@@ -1832,6 +1938,7 @@ body.dark-mode #theme-toggle i.bx-sun {
     #theme-toggle {
         padding: 8px 12px; /* Smaller padding for mobile */
         font-size: 12px; /* Smaller font size for mobile */
+
     }
 
     #theme-toggle i {
@@ -1887,10 +1994,8 @@ body.dark-mode #header {
     color: #fff; /* ; White text */
 }
 
+
 /* ----------------------------------------
 
 -----------------------------------------*/
 
-* {
-    transition: background-color 0.3s, color 0.3s, filter 0.3s;
-}

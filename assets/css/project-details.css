@@ -196,26 +196,26 @@ body.dark-mode .btn-outline-primary:hover {
 
 .footer-resume .resume-btn {
   background: #3498db; /* Resume button background */
-  color: #ffffff; /* Resume button text */
   padding: 10px 15px;
   font-size: 0.9rem;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s ease;
+  color: #ffffff!important;
 }
 
 .footer-resume .resume-btn:hover {
-  background: #0563bb; /* Hover effect for button */
+  background: #0563bb !important; /* Hover effect for button */
+  color: #ffffff!important; /* Resume button text */
 }
 
 .footer-line {
   border: none;
-  height: 2px;
-  background: #ffffff; /* Line color */
+  height: 0.5px;
+  background:#6b6767; /* Line color */
   margin: 15px 0;
 }
-
 .footer-social {
   display: flex;
   justify-content: center;
