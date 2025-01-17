@@ -169,8 +169,8 @@ body.dark-mode .btn-outline-primary:hover {
 --------------------------------------------------------------*/
 /* Footer Section */
 .footer {
-  background: rgba(0, 0, 0, 0.8); /* Footer background */
-  color: #45505b;; /* Footer text color */
+  background: #f7f8f9; /* Footer background */
+  color: #45505b; /* Footer text color */
   padding: 20px 10px;
   text-align: center;
   /* border-top: 3px solid #007bff;*/
@@ -190,24 +190,23 @@ body.dark-mode .btn-outline-primary:hover {
 
 .footer-name h3 {
   font-size: 1.5rem;
-  color: var(--text-light); /* Name color */
+  color: #45505b !important; /* Name color */
   margin: 0;
 }
 
 .footer-resume .resume-btn {
-  background: #3498db; /* Resume button background */
+  background: #0563bb; /* Resume button background */
+  color: #ffffff; /* Resume button text */
   padding: 10px 15px;
   font-size: 0.9rem;
-  border: none;
+  border: inherit;
   border-radius: 5px;
   text-decoration: none;
   transition: background 0.3s ease;
-  color: #ffffff!important;
 }
 
 .footer-resume .resume-btn:hover {
-  background: #0563bb !important; /* Hover effect for button */
-  color: #ffffff!important; /* Resume button text */
+  background: #3498db; /* Hover effect for button */
 }
 
 .footer-line {
@@ -216,6 +215,7 @@ body.dark-mode .btn-outline-primary:hover {
   background:#6b6767; /* Line color */
   margin: 15px 0;
 }
+
 .footer-social {
   display: flex;
   justify-content: center;
@@ -224,7 +224,7 @@ body.dark-mode .btn-outline-primary:hover {
 }
 
 .social-link {
-  color: #3498db; /* Social icon color */
+  color: #0563bb; /* Social icon color */
   font-size: 1.5rem;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -232,14 +232,17 @@ body.dark-mode .btn-outline-primary:hover {
 
 .social-link:hover {
   transform: scale(1.2);
-  color: #0563bb; /* Social icon hover effect */
+  color: #3498db; /* Social icon hover effect */
 }
 
 .footer-text {
   font-size: 0.9rem;
-  color: var(--text-muted); /* Footer text color */
+  color: #45505b !important; /* Footer text color */
 }
 
+body.dark-mode footer{
+	background-color: #1e1e1e;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .footer-header {
@@ -264,6 +267,20 @@ body.dark-mode .btn-outline-primary:hover {
   .footer-text {
     font-size: 0.8rem;
   }
+}
+
+
+
+
+/* Add a default opacity for better transitions */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Ensure visible after animation */
+[data-aos].aos-animate {
+    opacity: 1;
 }
 
 
