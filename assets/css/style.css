@@ -567,6 +567,10 @@ body.dark-mode #hero .hero-image img:hover {
 	#hero h3 {
 		font-size: 20px;
 	}
+	#hero .hero-image img {
+		width : 100%;
+		height: 90%;
+	}
 }
 
 
@@ -2017,3 +2021,5 @@ body.dark-mode #header {
 /* ----------------------------------------
 
 -----------------------------------------*/
+
+
