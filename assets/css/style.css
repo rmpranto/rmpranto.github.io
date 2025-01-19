@@ -560,6 +560,13 @@ body.dark-mode #hero .hero-image img:hover {
         max-width: 300px; /* Smaller image for mobile */
         margin-bottom: 20px;
     }
+	
+	#hero h1 {
+    font-size: 26px;
+}
+	#hero h3 {
+		font-size: 20px;
+	}
 }
 
 
@@ -954,6 +961,7 @@ body.dark-mode .skills-category .category-header::before {
         flex: 0 0 33.333%; /* 3 items per row on tablet */
         max-width: 33.333%;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -1082,6 +1090,10 @@ body.dark-mode .bi-method .skill-item:hover {
     .bi-method .skills-content {
         justify-content: center; /* Center items in mobile view */
     }
+	.skills-category .category-header {
+	  line-height: 3;
+	
+	}
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
