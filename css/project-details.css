@@ -1,0 +1,486 @@
+/* PROJECT DETAIL PAGE */
+
+.project-detail-page {
+  padding-top: 90px;
+}
+
+/* ==================== HERO ==================== */
+
+.project-detail-hero {
+  padding: 4rem 0 2rem;
+}
+
+.project-category {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-detail-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.project-detail-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  text-align: justify;
+  max-width: 900px;
+}
+
+/* META CARDS */
+
+.project-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* equal width cards */
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.project-meta-item {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  text-align: center; /* center content */
+}
+
+.project-meta-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.project-meta-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* BUTTONS */
+
+.project-detail-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* equal width buttons */
+  gap: 0.75rem;
+  max-width: 800px; /* constrain total width */
+}
+
+.btn-back {
+  border: 2px solid var(--color-primary) !important;
+  background: transparent !important;
+  color: var(--color-primary) !important;
+  justify-content: center; /* center button content */
+}
+
+.btn-back:hover {
+  background: var(--color-primary) !important;
+  color: white !important;
+}
+
+/* ==================== THREE HORIZONTAL CARDS ==================== */
+
+.project-detail-top-cards {
+  padding: 1.5rem 0 2rem;
+}
+
+.project-top-card-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.project-top-card {
+  background: var(--color-surface);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.project-top-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.project-top-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-text);
+}
+
+/* Tech Stack: rounded tag boxes */
+.project-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Data Tasks & Dashboard Features: bullet list */
+.project-tech-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.project-tech-list li {
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  color: var(--color-text-secondary);
+}
+
+/* ==================== OVERVIEW: text left, image right ==================== */
+
+.project-detail-content {
+  padding: 2rem 0 4rem;
+}
+
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* TEXT COLUMN */
+
+.project-detail-main h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.project-detail-main h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-detail-main p {
+  color: var(--color-text-secondary);
+  text-align: justify;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.project-detail-main ul {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding-left: 0;
+}
+
+.project-detail-main li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.project-detail-main li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+/* META CARDS */
+
+.project-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.project-meta-item {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.project-meta-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.project-meta-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Tools meta card with rounded tags */
+.project-meta-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.meta-tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 20px; /* circular/pill shape */
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.meta-tag:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+/* GitHub icon fix */
+.project-detail-actions .btn i {
+  display: inline-block !important;
+  margin-right: 6px;
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+.project-detail-actions .btn .bxl-github {
+  font-size: 1.2rem !important;
+}
+/* Force GitHub icon bigger */
+.btn-secondary .bxl-github {
+  font-size: 1.6rem !important;
+  margin-right: 8px !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+
+/* IMAGE COLUMN (scrollable for long images, full natural height) */
+
+.project-detail-sidebar {
+  position: sticky;
+  top: 90px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+.project-detail-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-detail-sidebar::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-radius: 10px;
+}
+
+.project-detail-sidebar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+.project-detail-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.project-detail-image {
+  cursor: zoom-in;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.project-detail-image:hover {
+  opacity: 0.9;
+}
+
+.project-detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ==================== IMAGE LIGHTBOX (ZOOM) ==================== */
+
+.image-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10001;
+}
+
+.lightbox-close:hover {
+  color: var(--color-accent);
+}
+
+.lightbox-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  object-fit: contain; /* ensures image fits nicely */
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .project-top-card-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-sidebar {
+    position: static;
+    max-height: none;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-detail-hero {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .project-detail-title {
+    font-size: 2rem;
+  }
+
+  .project-detail-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .project-detail-actions {
+    grid-template-columns: 1fr; /* stack buttons on mobile */
+  }
+
+  .project-detail-meta {
+    grid-template-columns: 1fr; /* stack meta cards on mobile */
+  }
+
+  .lightbox-close {
+    font-size: 2.5rem;
+    top: 15px;
+    right: 25px;
+  }
+
+  .lightbox-content {
+    max-width: 95%;
+    max-height: 85vh;
+  }
+
+  .lightbox-content-wrapper {
+    padding: 4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail-title {
+    font-size: 1.7rem;
+  }
+
+  .project-detail-main h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-detail-main h3 {
+    font-size: 1.15rem;
+  }
+
+  .lightbox-close {
+    font-size: 2rem;
+    top: 10px;
+    right: 15px;
+  }
+
+  .tech-tag {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .lightbox-content {
+    max-width: 98%;
+    max-height: 80vh;
+  }
+}
