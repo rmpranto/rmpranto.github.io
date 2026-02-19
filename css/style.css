@@ -201,7 +201,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 70px;
+            padding-top: 110px;
         }
 
         .hero-content {
@@ -1796,130 +1796,184 @@
         }
 
         /* ===== MOBILE RESPONSIVE ===== */
-        @media screen and (max-width: 850px) {
-            .hamburger {
-                display: flex;
-            }
+       /* ---------- MOBILE RESPONSIVE ---------- */
 
-            header {
-                background: rgba(255, 255, 255, 0.92) !important;
-                backdrop-filter: blur(25px) saturate(180%);
-                -webkit-backdrop-filter: blur(25px) saturate(180%);
-            }
+@media screen and (max-width: 850px) {
+  .hamburger {
+    display: flex;
+  }
 
-            [data-theme="dark"] header {
-                background: rgba(19, 23, 32, 0.92) !important;
-            }
+  header {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+  }
 
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: rgba(255, 255, 255, 0.98) !important;
-                backdrop-filter: blur(30px) saturate(180%);
-                -webkit-backdrop-filter: blur(30px) saturate(180%);
-                width: 100%;
-                text-align: center;
-                transition: left 0.3s ease;
-                box-shadow: var(--shadow-md);
-                padding: 1rem 0;
-                margin: 0;
-                max-height: calc(100vh - 70px);
-                overflow-y: auto;
-                border-top: 1px solid var(--color-border);
-                z-index: 999;
-            }
+  [data-theme="dark"] header {
+    background: rgba(19, 23, 32, 0.92) !important;
+  }
 
-            [data-theme="dark"] .nav-menu {
-                background: rgba(19, 23, 32, 0.98) !important;
-            }
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    width: 100%;
+    text-align: center;
+    transition: left 0.3s ease;
+    box-shadow: var(--shadow-md);
+    padding: 1rem 0;
+    margin: 0;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    border-top: 1px solid var(--color-border);
+    z-index: 999;
+  }
 
-            .nav-menu.active {
-                left: 0;
-            }
+  [data-theme="dark"] .nav-menu {
+    background: rgba(19, 23, 32, 0.98) !important;
+  }
 
-            .nav-menu li {
-                width: 100%;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid var(--color-border);
-            }
+  .nav-menu.active {
+    left: 0;
+  }
 
-            .nav-menu li:last-child {
-                border-bottom: none;
-            }
+  .nav-menu li {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
 
-            .nav-menu a {
-                display: block;
-                width: 100%;
-                padding: 0.5rem 1rem;
-            }
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
 
-            .hero .greeting {
-                display: none !important;
-            }
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
 
-            .hero h1 {
-                font-size: 2rem;
-                display: block !important;
-            }
+  /* hero text on tablets/phones */
+  .hero .greeting {
+    display: inline-block;         /* was display: none */
+  }
 
-            .hero p {
-                font-size: 1rem;
-            }
+  .hero h1 {
+    font-size: 2rem;
+    display: block !important;
+  }
 
-            .hero-content {
-                flex-direction: column;
-            }
+  .hero p {
+    font-size: 1rem!important;
+  }
 
-            .grid-2, .grid-3, .grid-4,
-            .skills-grid, .credentials-grid, 
-            .portfolio-grid, .contact-grid,
-            .stats-grid, .tech-grid, .certifications-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
+  .hero-content {
+    flex-direction: column;
+  }
 
-            section {
-                padding: 2rem 1rem !important;
-            }
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .skills-grid,
+  .credentials-grid,
+  .portfolio-grid,
+  .contact-grid,
+  .stats-grid,
+  .tech-grid,
+  .certifications-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
 
-            .card, .credential-card, .portfolio-item,
-            .timeline-item, .skill-category, .stat-card, .cert-card {
-                margin-bottom: 1rem;
-            }
+  section {
+    padding: 2rem 1rem !important;
+  }
 
-            h1 {
-                font-size: 2rem;
-            }
+  .card,
+  .credential-card,
+  .portfolio-item,
+  .timeline-item,
+  .skill-category,
+  .stat-card,
+  .cert-card {
+    margin-bottom: 1rem;
+  }
 
-            h2 {
-                font-size: 1.75rem;
-            }
+  h1 {
+    font-size: 2rem;
+  }
 
-            h3 {
-                font-size: 1.25rem;
-            }
+  h2 {
+    font-size: 1.75rem;
+  }
 
-            .container {
-                padding: 0 1rem;
-            }
+  h3 {
+    font-size: 1.25rem;
+  }
 
-            table {
-                font-size: 0.9rem;
-                display: block;
-                overflow-x: auto;
-            }
+  .container {
+    padding: 0 1rem;
+  }
 
-            img {
-                max-width: 100%;
-                height: auto;
-            }
+  table {
+    font-size: 0.9rem;
+    display: block;
+    overflow-x: auto;
+  }
 
-            .profile-img, .hero-image {
-                max-width: 250px;
-                margin: 0 auto 2rem;
-            }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .profile-img,
+  .hero-image {
+    max-width: 250px;
+    margin: 0 auto 2rem;
+  }
+}
+
+/* smaller phones */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 4%;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+    display: block !important;
+  }
+ .hero p {
+    font-size: 0.9rem !important;
+  }
+  .greeting {
+    display: inline-block !important;   /* was none */
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 1.5rem 0.75rem !important;
+  }
+
+  .section-header,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card,
+  .credential-card,
+  .portfolio-item,
+  .cert-card {
+    padding: 1rem;
+  }
+}
 
            /* ============================================
    MOBILE TIMELINE FIXES - PROPER ALIGNMENT
@@ -2588,5 +2642,80 @@
   .cv-modal-footer .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+/* Final offset fix for small-height phones */
+@media (max-width: 375px) {
+  .hero {
+    padding-top: 70px !important;   /* increase if still slightly hidden */
+  }
+  .container {
+    padding: 0 4%;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem!important;
+    display: block !important;
+  }
+
+  .greeting {
+    display: inline-block !important;
+  }
+
+  .logo {
+    font-size: 1rem!important;
+  }
+
+  section {
+    padding: 1.5rem 0.75rem !important;
+  }
+
+  .section-header,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card,
+  .credential-card,
+  .portfolio-item,
+  .cert-card {
+    padding: 1rem;
+  }
+
+  /* hero size tweaks on small phones */
+  .hero {
+    padding-top: 150px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 0.8rem !important;
+  }
+  .hero-text .typed-role {
+    font-size: 1rem;
+  }
+
+  .hero-actions .btn {
+    padding: 7px 14px;
+    font-size: 0.75rem;
+  }
+
+  .profile-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+  .profile-status {
+    bottom: 10px;          /* closer to the image */
+    right: 10px;
+    padding: 6px 10px;     /* smaller pill */
+    font-size: 0.7rem;     /* smaller text */
+  }
+}
+/* Offset fix for medium-height phones (e.g. iPhone 12 Pro) */
+@media (max-width: 414px) {
+  .hero {
+    padding-top: 70px !important;;   /* try 140–150px; adjust if needed */
   }
 }

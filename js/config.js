@@ -24,10 +24,11 @@ const portfolioConfig = {
     },
 
     // CV/Resume
-    cv: {
-        downloadUrl: "https://drive.google.com/uc?export=download&id=1C9SqT60thuGHxQw2zpfnPIzWs1oOo9yA",
-        previewUrl: "https://drive.google.com/file/d/1C9SqT60thuGHxQw2zpfnPIzWs1oOo9yA/preview"
-    },
+cv: {
+  downloadUrl: "https://drive.google.com/uc?export=download&id=12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV",
+  previewUrl: "https://drive.google.com/file/d/12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV/preview"
+},
+
 
     // Theme Settings
     theme: {

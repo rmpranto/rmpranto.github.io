@@ -275,7 +275,7 @@ setTimeout(updateTimelineProgress, 500); // Extra delay
 
 
         // Typed Effect
-        const roles = ['Data Analyst', 'BI Developer', 'SQL Expert', 'Dashboard Designer', 'ETL Specialist'];
+        const roles = ['Data Analyst', 'Analytics Engineer','BI Developer', 'Database Engineer', 'Data Engineer'];
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -579,19 +579,17 @@ if (contactForm) {
 
 
     // ===== CV MODAL FUNCTIONS =====
-    function openCVModal() {
-        const modal = document.getElementById('cvModal');
-        const iframe = document.getElementById('cvIframe');
+	function openCVModal() {
+	  const modal = document.getElementById('cvModal');
+	  const iframe = document.getElementById('cvIframe');
 
-        if (modal && iframe) {
-            // Set iframe source to Google Drive embed URL
-            iframe.src = 'https://drive.google.com/file/d/1C9SqT60thuGHxQw2zpfnPIzWs1oOo9yA/preview';
+	  if (modal && iframe) {
+		iframe.src = 'https://drive.google.com/file/d/12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV/preview';  // uses config.js
+		modal.classList.add('active');
+		document.body.style.overflow = 'hidden';
+	  }
+	}
 
-            // Show modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
 
     function closeCVModal() {
         const modal = document.getElementById('cvModal');
