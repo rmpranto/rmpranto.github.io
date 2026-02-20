@@ -69,7 +69,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" >
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -78,8 +78,12 @@
                         Rahat Maksud Pranto
                         <span class="typed-role" id="typedRole"></span>
                     </h1>
+					 <h2 style="font-size: clamp(1rem, 4vw, 2.2rem); color: #20B2AA;">1+ Year Experience</h2>
+
                     <p class="description">
-                        Detail-oriented Data Analyst with experience in SQL, Looker Studio, BigQuery, Power BI, Excel, and Python.
+                        Detail-oriented Professional Data Analyst with experience in SQL, Looker Studio, BigQuery, 
+						Power BI, Excel, and Python. Working on enterprise-scale projects of industry-leading 
+						organizations, Transforming millions of data points into actionable intelligence.
                     </p>
                     <div class="hero-actions">
                         <a href="#" class="btn btn-primary" onclick="openCVModal(); return false;"> Download Résumé</a>
@@ -124,7 +128,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
+<section id="about" class="about section section-reveal">
         <div class="container">
             <div class="section-header">
                  <!--  <p class="section-tag">// WHO I AM</p>-->
@@ -177,9 +181,116 @@
             </div>  -->
         </div>
     </section>
+	
+	    <!-- Profile Section (Timeline) -->
+    <section id="profile"  class="timeline section section-reveal">
+        <div class="container">
+            <div class="section-header">
+                  <!-- <p class="section-tag">// MY JOURNEY</p>-->
+                <h2 class="section-title">Professional Profile</h2>
+            </div>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <!-- Work Experience -->
+				<div class="timeline-item">
+					<div class="timeline-icon">
+						<i class='bx bx-briefcase'></i>  
+					</div>
+						<div class="timeline-card">
+								<!-- First Experience - Date in TOP-RIGHT -->
+							<div class="timeline-experience-item">
+									<div class="timeline-date-badge">Feb 2026 - Present</div>
+									<h3 class="timeline-title">Data Analyst</h3>
+									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
+									<div class="timeline-description">
+										<ul>
+											<li>Optimized and troubleshot databases to improve query performance, data accuracy, and dashboard reliability.</li>
+											<li>Automated dashboards using SQL, BigQuery, and Looker Studio for near real-time performance monitoring.</li>
+											<li>Delivered actionable insights through advanced reporting and visualization across multiple enterprise client projects.</li>
+											<li>Partnered with stakeholders to define KPIs, align analytics requirements, and deliver reporting solutions within project timelines.</li>
+										</ul>
+									</div>
+							</div>
+						</div>
+			   </div>
+								<!-- second Experience - Date in TOP-RIGHT -->
+				<div class="timeline-item">
+					<div class="timeline-icon">
+						<i class='bx bx-briefcase'></i>  
+					</div>
+						<div class="timeline-card">
+								
+							<div class="timeline-experience-item">
+									<div class="timeline-date-badge">Aug 2025 - Feb 2026</div>
+									<h3 class="timeline-title">Junior Data Analyst</h3>
+									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
+									<div class="timeline-description">
+										<ul>
+											 <li>Enhanced data quality through ETL pipeline improvements</li>
+											 <li>Created consumer segmentation dashboards improving efficiency by 30%</li>
+											 <li>Automated ETL workflows reducing processing time by 20%</li>
+										</ul>
+									</div>
+							</div>
+						</div>
+			   </div>
+								<!-- second Experience - Date in TOP-RIGHT -->
+				<div class="timeline-item">
+					<div class="timeline-icon">
+						<i class='bx bx-briefcase'></i>  
+					</div>
+						<div class="timeline-card">
+								
+							<div class="timeline-experience-item">
+									<div class="timeline-date-badge">Feb 2025 - Aug 2025</div>
+									<h3 class="timeline-title">Data Analyst - Intern</h3>
+									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
+									<div class="timeline-description">
+										<ul>
+		                                <li>Produced 15+ daily campaign reports using SQL</li>
+										<li>Designed 5+ interactive Looker dashboards</li>
+										<li>Generated ad hoc analytical reports</li>
+										</ul>
+									</div>
+							</div>
+						</div>
+			   </div>
+
+								<!-- second Experience - Date in TOP-RIGHT -->
+				<div class="timeline-item">
+					<div class="timeline-icon">
+						<i class='bx bx-briefcase'></i>  
+					</div>
+						<div class="timeline-card">
+							<div class="timeline-experience-item">
+									<div class="timeline-date-badge">Jan 2022 - Apr 2022</div>
+									<h3 class="timeline-title">Teaching Assistant</h3>
+									<p class="timeline-subtitle">American International University-Bangladesh (AIUB)</p>
+									<div class="timeline-description">
+										<ul>
+											<li>Assisted in completing 97% of lesson plans</li>
+											<li>Guided 40 students in database concepts</li>
+											<li>Debugged 100+ SQL queries in Oracle</li>
+										</ul>
+									</div>
+							</div>
+						</div>
+			   </div>
+								<!-- DIVIDER -->
+								<!--<div class="timeline-divider"></div>-->
+
+							</div>
+						</div>
+			   </div>
+        </div>
+    </section>
+	
+	
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" class="skills section section-reveal">
         <div class="container">
             <div class="section-header">
               <!--  <p class="section-tag">// TECHNICAL EXPERTISE</p> -->
@@ -380,7 +491,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications">
+    <section id="certifications" class="Certifications section section-reveal">
         <div class="container">
             <div class="section-header">
                   <!-- <p class="section-tag">// CREDENTIALS</p>-->
@@ -556,7 +667,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="projects section section-reveal">
         <div class="container">
             <div class="section-header">
                   <!-- <p class="section-tag">// PORTFOLIO</p>-->
@@ -698,117 +809,14 @@
         </div>
     </section>
 
-    <!-- Profile Section (Timeline) -->
-    <section id="profile">
-        <div class="container">
-            <div class="section-header">
-                  <!-- <p class="section-tag">// MY JOURNEY</p>-->
-                <h2 class="section-title">Professional Profile</h2>
-            </div>
 
-            <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-
-                <!-- Work Experience -->
-				<div class="timeline-item">
-					<div class="timeline-icon">
-						<i class='bx bx-briefcase'></i>  
-					</div>
-						<div class="timeline-card">
-								<!-- First Experience - Date in TOP-RIGHT -->
-							<div class="timeline-experience-item">
-									<div class="timeline-date-badge">Feb 2026 - Present</div>
-									<h3 class="timeline-title">Data Analyst</h3>
-									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
-									<div class="timeline-description">
-										<ul>
-											<li>Optimized and troubleshot databases to improve query performance, data accuracy, and dashboard reliability.</li>
-											<li>Automated dashboards using SQL, BigQuery, and Looker Studio for near real-time performance monitoring.</li>
-											<li>Delivered actionable insights through advanced reporting and visualization across multiple enterprise client projects.</li>
-											<li>Partnered with stakeholders to define KPIs, align analytics requirements, and deliver reporting solutions within project timelines.</li>
-										</ul>
-									</div>
-							</div>
-						</div>
-			   </div>
-								<!-- second Experience - Date in TOP-RIGHT -->
-				<div class="timeline-item">
-					<div class="timeline-icon">
-						<i class='bx bx-briefcase'></i>  
-					</div>
-						<div class="timeline-card">
-								
-							<div class="timeline-experience-item">
-									<div class="timeline-date-badge">Aug 2025 - Feb 2026</div>
-									<h3 class="timeline-title">Junior Data Analyst</h3>
-									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
-									<div class="timeline-description">
-										<ul>
-											 <li>Enhanced data quality through ETL pipeline improvements</li>
-											 <li>Created consumer segmentation dashboards improving efficiency by 30%</li>
-											 <li>Automated ETL workflows reducing processing time by 20%</li>
-										</ul>
-									</div>
-							</div>
-						</div>
-			   </div>
-								<!-- second Experience - Date in TOP-RIGHT -->
-				<div class="timeline-item">
-					<div class="timeline-icon">
-						<i class='bx bx-briefcase'></i>  
-					</div>
-						<div class="timeline-card">
-								
-							<div class="timeline-experience-item">
-									<div class="timeline-date-badge">Feb 2025 - Aug 2025</div>
-									<h3 class="timeline-title">Data Analyst - Intern</h3>
-									<p class="timeline-subtitle">V2 Technologies Ltd.</p>
-									<div class="timeline-description">
-										<ul>
-		                                <li>Produced 15+ daily campaign reports using SQL</li>
-										<li>Designed 5+ interactive Looker dashboards</li>
-										<li>Generated ad hoc analytical reports</li>
-										</ul>
-									</div>
-							</div>
-						</div>
-			   </div>
-
-								<!-- second Experience - Date in TOP-RIGHT -->
-				<div class="timeline-item">
-					<div class="timeline-icon">
-						<i class='bx bx-briefcase'></i>  
-					</div>
-						<div class="timeline-card">
-							<div class="timeline-experience-item">
-									<div class="timeline-date-badge">Jan 2022 - Apr 2022</div>
-									<h3 class="timeline-title">Teaching Assistant</h3>
-									<p class="timeline-subtitle">American International University-Bangladesh (AIUB)</p>
-									<div class="timeline-description">
-										<ul>
-											<li>Assisted in completing 97% of lesson plans</li>
-											<li>Guided 40 students in database concepts</li>
-											<li>Debugged 100+ SQL queries in Oracle</li>
-										</ul>
-									</div>
-							</div>
-						</div>
-			   </div>
-								<!-- DIVIDER -->
-								<!--<div class="timeline-divider"></div>-->
-
-							</div>
-						</div>
-			   </div>
-        </div>
-    </section>
 	
 	
 	
 	<!-- --------------------------------------
 	-----------------Education --------->
 
-	<section id="profile">
+	<section id="profile" class="timeline section section-reveal">
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">Education</h2>
@@ -885,7 +893,7 @@
 
                 
 					
-	<section id="academic-extracurricular">
+	<section id="academic-extracurricular" class="timeline section section-reveal">
 		<div class="container">
 			<div class="section-header">
 				<h2 class="section-title">Academic & Extracurricular</h2>
@@ -951,7 +959,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="contact section section-reveal">
         <div class="container">
             <div class="section-header">
                   <!-- <p class="section-tag">// LET'S CONNECT</p>-->
