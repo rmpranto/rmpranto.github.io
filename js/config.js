@@ -25,8 +25,8 @@ const portfolioConfig = {
 
     // CV/Resume
 cv: {
-  downloadUrl: "https://drive.google.com/uc?export=download&id=12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV",
-  previewUrl: "https://drive.google.com/file/d/12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV/preview"
+  downloadUrl: "https://drive.google.com/uc?export=download&id=1A5Lh82yLds32Yr64MWrq1yUt8BUdV_HC",
+  previewUrl: "https://drive.google.com/file/d/1A5Lh82yLds32Yr64MWrq1yUt8BUdV_HC/preview"
 },
 
 

@@ -607,7 +607,7 @@ if ('IntersectionObserver' in window && revealSections.length) {
 	  const iframe = document.getElementById('cvIframe');
 
 	  if (modal && iframe) {
-		iframe.src = 'https://drive.google.com/file/d/12JbLSLy3zdTZiZyG-TKOBgxi0uVgRgjV/preview';  // uses config.js
+		iframe.src = 'https://drive.google.com/file/d/1A5Lh82yLds32Yr64MWrq1yUt8BUdV_HC/preview';  // uses config.js
 		modal.classList.add('active');
 		document.body.style.overflow = 'hidden';
 	  }
