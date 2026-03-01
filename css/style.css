@@ -1070,6 +1070,19 @@ section {
     margin-bottom: 6px;
 }
 
+.timeline-subtitle a,
+.timeline-subtitle a:link,
+.timeline-subtitle a:visited {
+    color: var(--color-primary) !important;
+    text-decoration: none !important;
+}
+
+.timeline-subtitle a:hover {
+    color: var(--color-accent) !important;
+    text-decoration: none !important;
+    opacity: 1;
+}
+
 .timeline-date {
     font-family: var(--font-mono);
     font-size: 0.85rem;
