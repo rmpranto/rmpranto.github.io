@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <div className="container not-found"><span className="eyebrow">404 / NOT FOUND</span><h1>Not everything <em>is a match.</em></h1><p>That page isn't available. You can get back to the portfolio or explore the project archive.</p><div className="hero-cta"><Link href="/" className="button button-primary">Back to portfolio</Link><Link href="/projects" className="button button-outline">Explore projects</Link></div></div>}

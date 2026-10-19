@@ -1,0 +1,40 @@
+# Generated dependencies, Next.js output and local previews
+/node_modules/
+/.next/
+/out/
+/.vercel/
+*.tsbuildinfo
+
+# Local-only unpublished drafts — NEVER push to public GitHub
+/drafts/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Local QA and reports
+/qa/
+/coverage/
+/test-results/
+/playwright-report/
+/QA_REPORT*.md
+
+# System / logs
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Historical local notes from older releases (if applying patch over V25.1)
+/CHANGELOG_V*.md
+/UPDATE_FROM_V*.md
+/FUTURE_CONTENT.md
+/PROJECT_CONTENT_AUDIT_V24.md
+/PROJECT_INVENTORY.md
+/README_V16.md
+/WINDOWS_RUN.md
+/APPLY_V15_UPDATE.bat
+/V*_TO_*_PATCH_INSTRUCTIONS.txt

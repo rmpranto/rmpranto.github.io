@@ -1,54 +1,25 @@
-# Portfolio - Organized Structure
+# Rahat Maksud Pranto — Portfolio V26 (GitHub Pages)
 
-## Folder Structure
-```
-portfolio/
-├── index.html                 # Main HTML file (NO inline scripts)
-├── css/
-│   └── style.css             # All styles
-├── js/
-│   ├── config.js             # Unified configuration (UPDATE HERE)
-│   └── main.js               # All JavaScript code
-├── assets/
-│   ├── images/               # Portfolio images
-│   └── icons/                # Icons and logos
-├── docs/
-│   └── (place your CV/resume here)
-└── project-details/          # Individual project detail pages
-```
+Next.js 15, React 19, TypeScript, Motion, static export for **rmpranto/rmpranto.github.io** (default branch `master`).
+This replaces the older static HTML website at the same URL once deployed.
 
-## How to Update Configuration
+## Run locally
+- Install Node.js 22.
+- Run `npm install` then `npm run dev` (http://localhost:3000).
+- After downloading public assets, run `npm run assets:check` and `npm run build`.
+- Inspect **actual exported pages** via `npm run preview` (http://localhost:4173).
 
-### One-Time Update for Everything
-Edit **`js/config.js`** to update:
-- Personal information (name, email, phone, location)
-- Social links (LinkedIn, GitHub, etc.)
-- CV/Resume download links
-- Theme settings
+## Deploy
+Follow **`DEPLOY_TO_GITHUB_PAGES_V26.md`** precisely. A GitHub Actions workflow builds the `out/` directory and publishes it automatically when `master` is pushed. Don't upload `out/` or `.next/` to Git.
 
-All changes in `config.js` will automatically reflect across the entire portfolio.
+## Content
+- Eight public independent / academic projects are available under `/projects/`.
+- Dark/light theme, Motion animations, resume preview and Formspree contact form are client-side features designed to work on static hosting.
+- The historical `/project-details/*.html` URLs have small static redirect pages.
+- `drafts/` is excluded from Git. Preserve it locally and back it up separately. Private client screenshots/content must not be published.
+- Read **`SECURITY_PUBLICATION_CHECK_V26.md`** before deploying: the original full CV is included in `public/resume/` as requested and may contain personal and reference contact information.
 
-## Key Features
-✅ **NO inline scripts** - All JavaScript is in external files
-✅ **Unified config file** - Update once, change everywhere
-✅ **Clean separation** - HTML, CSS, JS in separate files
-✅ **Easy maintenance** - Professional folder structure
+## Changing domain in the future
+GitHub Pages supports custom domains such as `rmpranto.dev`. After registering/verifying the domain, set the custom domain in Settings → Pages, follow GitHub's DNS instructions, and change `NEXT_PUBLIC_SITE_URL` in `.github/workflows/deploy-pages.yml`. Don't add a CNAME before owning the domain.
 
-## Setup Instructions
-
-1. **Add Your CV/Resume**
-   - Place your CV PDF in the `docs/` folder
-   - Update the filename in `js/config.js`
-
-2. **Add Images**
-   - Place portfolio images in `assets/images/`
-   - Place icons/logos in `assets/icons/`
-
-3. **Update Personal Info**
-   - Open `js/config.js`
-   - Update the `personal` object with your information
-   - Update the `social` object with your links
-
-4. **Deploy**
-   - Upload all files maintaining the folder structure
-   - Works with GitHub Pages, Netlify, Vercel, etc.
+Build cannot be guaranteed until Node dependencies install and `npm run build` completes. GitHub is not modified by this package.
