@@ -1,8 +1,8 @@
 # Deploy V26 on your existing GitHub Pages repository
 
-Target repository: `https://github.com/rmpranto/rmpranto.github.io`
-Branch: **`master`** (not `main`)
-Live URL after successful deployment: `https://rmpranto.github.io/`
+Target repository: `https://github.com/rmpranto/rmpranto.github.io`  
+Branch: **`master`** (not `main`)  
+Live URL after successful deployment: `https://rmpranto.github.io/`  
 XAMPP/Apache is **not** required for Next.js.
 
 ## Step 1 — keep a complete backup

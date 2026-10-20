@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useRef, type ReactNode, type FormEvent } from 'react';
+import { useEffect, useState, useRef, type ReactNode, type FormEvent, type MouseEvent as ReactMouseEvent } from 'react';
 import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform, type MotionValue } from 'motion/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -45,11 +45,33 @@ export function ResumeButton({className='',children}: {className?:string,childre
 function setHtmlTheme(theme:'dark'|'light'){document.documentElement.dataset.theme=theme;localStorage.setItem('rmp-theme',theme)}
 export function ThemeToggle(){const [theme,setTheme]=useState<'dark'|'light'>('dark');useEffect(()=>{setTheme(document.documentElement.dataset.theme==='light'?'light':'dark')},[]);const flip=()=>{const t=theme==='dark'?'light':'dark';setTheme(t);setHtmlTheme(t)};return <button type="button" className="theme-toggle" aria-label={'Switch to '+(theme==='dark'?'light':'dark')+' mode'} title={'Switch to '+(theme==='dark'?'light':'dark')+' mode'} onClick={flip}>{theme==='dark'?<Sun size={17}/>:<Moon size={17}/>}</button>}
 const navigation=[['About','/#about'],['Capabilities','/#capabilities'],['Projects','/#projects'],['Experience','/#experience'],['Education','/#education'],['Credentials','/#credentials'],["Get in Touch",'/#contact']];
+/** The Next.js router does not reliably re-scroll to hash targets on repeated
+ * same-route taps in mobile Safari. Handle anchors on the home page directly.
+ * For other routes preserve Next.js Link navigation to /#section. */
+function HomeAnchor({id,children,className,onNavigate,ariaLabel,ariaCurrent}:{id:string;children:ReactNode;className?:string;onNavigate?:()=>void;ariaLabel?:string;ariaCurrent?:'location'}){
+ const pathname=usePathname();
+ const handleClick=(event:ReactMouseEvent<HTMLAnchorElement>)=>{
+  if(event.defaultPrevented || event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)return;
+  onNavigate?.();
+  if(pathname!=='/')return;
+  const target=document.getElementById(id);
+  if(!target)return;
+  event.preventDefault();
+  const url=window.location.pathname+window.location.search+'#'+id;
+  // Keep App Router's history state intact while making the URL shareable.
+  if(window.location.hash!=='#'+id)window.history.pushState(window.history.state,'',url);
+  const behavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+  window.requestAnimationFrame(()=>target.scrollIntoView({behavior,block:'start'}));
+ };
+ return <Link href={`/#${id}`} className={className} onClick={handleClick} aria-label={ariaLabel} aria-current={ariaCurrent}>{children}</Link>;
+}
+
 export function Header(){
  const pathname=usePathname();
  const [menu,setMenu]=useState(false);
  const [active,setActive]=useState('');
  const {scrollYProgress}=useScroll();
+ useEffect(()=>{setMenu(false)},[pathname]);
  useEffect(()=>{
   // The shared header survives App Router navigation. Never keep section nodes
   // from the previous page: they become detached after /about -> /#top.
@@ -93,26 +115,61 @@ export function Header(){
   };
  },[pathname]);
  return <header className="site-header">
-  <div className="container nav-inner"><Link className="wordmark" href="/#top" onClick={()=>setMenu(false)} aria-label="Rahat Maksud Pranto — back to top"><span className="wordmark-seal" aria-hidden="true">RMP<span className="brand-dot">.</span></span><span className="brand-full-name">Rahat Maksud Pranto</span></Link>
-  <nav aria-label="Primary navigation" className="desktop-nav">{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><Link key={url} href={url} aria-current={active===url.slice(2)?'location':undefined} className={active===url.slice(2)?'nav-active':''}>{label}</Link>)}</nav>
-  <div className="nav-right"><ThemeToggle/><Link href="/#contact" className="nav-contact">Get in Touch <ArrowUpRight size={15}/></Link><button className="menu-button" aria-label={menu?'Close menu':'Open menu'} aria-expanded={menu} aria-controls="mobile-menu" onClick={()=>setMenu(!menu)}>{menu?<X size={22}/>:<Menu size={22}/>}</button></div></div>
+  <div className="container nav-inner"><HomeAnchor id="top" className="wordmark" onNavigate={()=>setMenu(false)} ariaLabel="Rahat Maksud Pranto — back to top"><span className="wordmark-seal" aria-hidden="true">RMP<span className="brand-dot">.</span></span><span className="brand-full-name">Rahat Maksud Pranto</span></HomeAnchor>
+  <nav aria-label="Primary navigation" className="desktop-nav">{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><HomeAnchor key={url} id={url.slice(2)} className={active===url.slice(2)?'nav-active':''} ariaCurrent={active===url.slice(2)?'location':undefined}>{label}</HomeAnchor>)}</nav>
+  <div className="nav-right"><ThemeToggle/><HomeAnchor id="contact" className="nav-contact">Get in Touch <ArrowUpRight size={15}/></HomeAnchor><button className="menu-button" aria-label={menu?'Close menu':'Open menu'} aria-expanded={menu} aria-controls="mobile-menu" onClick={()=>setMenu(!menu)}>{menu?<X size={22}/>:<Menu size={22}/>}</button></div></div>
   <motion.span className="site-scroll-progress" style={{scaleX:scrollYProgress}} aria-hidden="true"/>
-  <AnimatePresence>{menu&&<motion.nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0,height:0}} animate={{opacity:1,height:'auto'}} exit={{opacity:0,height:0}} transition={{duration:.25}}>{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><Link key={url} href={url} onClick={()=>setMenu(false)}>{label}<ArrowUpRight size={16}/></Link>)}<Link className="mobile-contact" href="/#contact" onClick={()=>setMenu(false)}>Get in Touch <ArrowUpRight size={16}/></Link><ResumeButton className="mobile-resume">View Resume <FileText size={16}/></ResumeButton></motion.nav>}</AnimatePresence>
+  <AnimatePresence>{menu&&<motion.nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0,height:0}} animate={{opacity:1,height:'auto'}} exit={{opacity:0,height:0}} transition={{duration:.25}}>{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><HomeAnchor key={url} id={url.slice(2)} onNavigate={()=>setMenu(false)}>{label}<ArrowUpRight size={16}/></HomeAnchor>)}<HomeAnchor id="contact" className="mobile-contact" onNavigate={()=>setMenu(false)}>Get in Touch <ArrowUpRight size={16}/></HomeAnchor><ResumeButton className="mobile-resume">View Resume <FileText size={16}/></ResumeButton></motion.nav>}</AnimatePresence>
  </header>;
 }
 export function BackToTop(){const [visible,setVisible]=useState(false);useEffect(()=>{const onScroll=()=>setVisible(window.scrollY>520);onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll)},[]);return <AnimatePresence>{visible&&<motion.button type="button" className="back-to-top" title="Back to top" aria-label="Back to top" onClick={()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})} initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} exit={{opacity:0,y:14}}><ArrowUpRight className="back-to-top-arrow" size={20}/></motion.button>}</AnimatePresence>;}
-export function ResumeModal(){const [open,setOpen]=useState(false);const close=useRef<HTMLButtonElement>(null);const previous=useRef<HTMLElement|null>(null);useEffect(()=>{const show=()=>{previous.current=document.activeElement as HTMLElement;setOpen(true)};window.addEventListener('rmp:resume',show);return ()=>window.removeEventListener('rmp:resume',show)},[]);useEffect(()=>{if(!open)return;close.current?.focus();const before=document.body.style.overflow;document.body.style.overflow='hidden';const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false);if(e.key==='Tab'){const nodes=document.querySelectorAll<HTMLElement>('.resume-modal a,.resume-modal button');if(!nodes.length)return;const first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}};window.addEventListener('keydown',onKey);return()=>{document.body.style.overflow=before;window.removeEventListener('keydown',onKey);previous.current?.focus()}},[open]);return <AnimatePresence>{open&&<motion.div className="resume-overlay" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onMouseDown={e=>{if(e.target===e.currentTarget)setOpen(false)}}><motion.div className="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-title" initial={{y:25,opacity:0}} animate={{y:0,opacity:1}} exit={{y:20,opacity:0}}><div className="resume-top"><div><span className="eyebrow">LATEST CV / 2026</span><h2 id="resume-title">Rahat Maksud Pranto</h2></div><button ref={close} aria-label="Close resume preview" onClick={()=>setOpen(false)}><X size={21}/></button></div><p className="resume-mobile-help">If your browser cannot display the embedded PDF, use Open in new tab.</p><iframe src={`${site.cv}#view=FitH`} title="Full CV PDF preview" className="resume-frame"/><div className="resume-actions"><a target="_blank" rel="noopener noreferrer" href={site.cv}>Open in new tab <ExternalLink size={15}/></a><a download="Rahat_Maksud_Pranto_Data_Analyst_2Y_Exp_CV.pdf" href={site.cv}>Download PDF <Download size={15}/></a></div></motion.div></motion.div>}</AnimatePresence>}
+export function ResumeModal(){
+ const [open,setOpen]=useState(false);
+ const close=useRef<HTMLButtonElement>(null);
+ const previous=useRef<HTMLElement|null>(null);
+ useEffect(()=>{
+  const show=()=>{previous.current=document.activeElement as HTMLElement;setOpen(true)};
+  window.addEventListener('rmp:resume',show);
+  return ()=>window.removeEventListener('rmp:resume',show);
+ },[]);
+ useEffect(()=>{
+  if(!open)return;
+  close.current?.focus();
+  const before=document.body.style.overflow;
+  document.body.style.overflow='hidden';
+  const onKey=(e:KeyboardEvent)=>{
+   if(e.key==='Escape')setOpen(false);
+   if(e.key==='Tab'){
+    const nodes=document.querySelectorAll<HTMLElement>('.resume-modal a,.resume-modal button,.resume-modal [tabindex="0"]');
+    if(!nodes.length)return;
+    const first=nodes[0],last=nodes[nodes.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+   }
+  };
+  window.addEventListener('keydown',onKey);
+  return ()=>{document.body.style.overflow=before;window.removeEventListener('keydown',onKey);previous.current?.focus()};
+ },[open]);
+ return <AnimatePresence>{open&&<motion.div className="resume-overlay" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onMouseDown={e=>{if(e.target===e.currentTarget)setOpen(false)}}><motion.div className="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-title" initial={{y:25,opacity:0}} animate={{y:0,opacity:1}} exit={{y:20,opacity:0}}>
+  <div className="resume-top"><div><span className="eyebrow">LATEST CV / 2026</span><h2 id="resume-title">Rahat Maksud Pranto</h2></div><button type="button" ref={close} aria-label="Close resume preview" onClick={()=>setOpen(false)}><X size={21}/></button></div>
+  <p className="resume-mobile-help">Scroll below to read both pages. Open the original PDF for zoom and text selection.</p>
+  <div className="resume-pages" role="region" aria-label="Two-page CV preview" tabIndex={0}>
+   {[1,2].map(page=><figure className="resume-page" key={page}><figcaption>PAGE {page} / 2</figcaption><Image src={`/resume/cv-preview-page-${page}.webp`} alt={`Rahat Maksud Pranto CV page ${page} of 2`} width={1370} height={1937} unoptimized /></figure>)}
+  </div>
+  <div className="resume-actions"><a target="_blank" rel="noopener noreferrer" href={site.cv}>Open original PDF <ExternalLink size={15}/></a><a download="Rahat_Maksud_Pranto_Data_Analyst_2Y_Exp_CV.pdf" href={site.cv}>Download PDF <Download size={15}/></a></div>
+ </motion.div></motion.div>}</AnimatePresence>;
+}
 export function Portrait(){const [attempt,setAttempt]=useState(0);return <figure className="hero-portrait"><div className="portrait-frame">{attempt<2?<Image src={attempt===0?"/assets/profile/pro4.png":site.portrait} alt="Portrait of Rahat Maksud Pranto" width={470} height={580} priority unoptimized onError={()=>setAttempt(x=>x+1)} className="portrait-image"/>:<div className="portrait-fallback" role="img" aria-label="Photograph unavailable; Rahat Maksud Pranto initials">RMP<span>.</span><small>Portrait unavailable — run the asset sync</small></div>}</div></figure>}
 export function Hero(){
  const reduce=useReducedMotion();
  const enter=(delay:number)=>({initial:reduce?false:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.72,delay,ease:[.16,1,.3,1] as [number,number,number,number]}});
  return <section className="hero container" id="top">
  <div className="hero-main"><div className="hero-type">
-
+  
   <h1 className="hero-name"><motion.span {...enter(.13)}>Making data</motion.span><motion.span {...enter(.24)}><em>make sense.</em></motion.span></h1>
   <motion.p className="hero-subtitle" {...enter(.34)}>I’m Rahat Maksud Pranto — a Data Analyst working across data &amp; analytics engineering.</motion.p>
   <motion.p className="hero-description" {...enter(.42)}>I work where analytics, trustworthy data and practical engineering meet—building dashboards, maintaining databases and automating the work behind better decisions.</motion.p>
-  <motion.div {...enter(.53)} className="hero-cta"><Link className="button button-primary" href="/#projects">Explore my work <ArrowUpRight size={17}/></Link><Link className="button button-hero-contact" href="/#contact">Get in Touch <ArrowUpRight size={17}/></Link></motion.div>
+  <motion.div {...enter(.53)} className="hero-cta"><HomeAnchor id="projects" className="button button-primary">Explore my work <ArrowUpRight size={17}/></HomeAnchor><HomeAnchor id="contact" className="button button-hero-contact">Get in Touch <ArrowUpRight size={17}/></HomeAnchor></motion.div>
 	  <motion.div {...enter(.62)} className="hero-social"><div className="hero-social-actions"><ResumeButton className="hero-resume-pill"><FileText size={16}/> Resume</ResumeButton><span className="hero-social-separator" aria-hidden="true"/><SocialLinks compact/></div><p className="hero-location"><MapPin className="hero-location-pin" aria-hidden="true" size={15} strokeWidth={1.8}/> Dhaka, Bangladesh</p></motion.div>
  </div><div className="hero-art"><div className="hero-art-grid" aria-hidden="true"/><Portrait/></div></div>
  <div className="trusted brand-wall" aria-label="Professional experience and client-project associations">
@@ -203,7 +260,7 @@ export function Contact(){
  };
  return <section id="contact" className="section contact-section"><div className="container"><SectionHeading number="07" name="Get in Touch" aside="Thoughtful work begins with a conversation"/><Reveal><h2 className="contact-headline">Have something <em>in mind?</em><br/> Get in touch.</h2></Reveal><div className="contact-grid"><div className="contact-left"><p>Whether you're exploring a collaboration, hiring for a data role, or just want to exchange ideas, I'd be glad to hear from you.</p><a className="contact-email" href={'mailto:'+site.email}>{site.email} <ArrowUpRight size={19}/></a><SocialLinks/></div><form className="contact-form" onSubmit={submit}><span className="mono quiet">WHAT BRINGS YOU HERE?</span><div className="contact-options" role="radiogroup" aria-label="Inquiry type">{['A project or collaboration','A career opportunity','Something else'].map(t=><label key={t}><input type="radio" name="inquiry" checked={type===t} onChange={()=>{setType(t);setState('idle')}} disabled={state==='sending'}/><span>{t}</span></label>)}</div><div className="contact-fields"><label>Your name<input name="name" required minLength={2} maxLength={120} value={name} onChange={e=>{setName(e.target.value);setState('idle')}} placeholder="Name" autoComplete="name" disabled={state==='sending'}/></label><label>Email address<input name="email" required type="email" maxLength={254} value={email} onChange={e=>{setEmail(e.target.value);setState('idle')}} placeholder="you@example.com" autoComplete="email" disabled={state==='sending'}/></label></div><label>Your message<textarea name="message" required minLength={10} maxLength={5000} rows={4} value={message} onChange={e=>{setMessage(e.target.value);setState('idle')}} placeholder="Tell me what you have in mind…" disabled={state==='sending'}/></label><div className="contact-honeypot" aria-hidden="true"><label>Leave this blank<input tabIndex={-1} autoComplete="off" name="_gotcha" value={website} onChange={e=>setWebsite(e.target.value)}/></label></div><button className="button button-primary" type="submit" disabled={state==='sending'} aria-busy={state==='sending'}>{state==='sending'?'Sending…':'Send Inquiry'} <ArrowUpRight size={16}/></button><p className="form-disclosure">Messages are sent securely through Formspree. If you prefer, email me directly.</p><div className="form-status" role="status" aria-live="polite">{state==='success'&&<p className="form-success"><Check size={17}/> Your inquiry was sent successfully. Thank you!</p>}{state==='error'&&<p className="form-error">{error} <a href={'mailto:'+site.email}>Email me instead</a>.</p>}</div></form></div></div></section>
 }
-export function Footer(){return <footer className="footer" id="site-footer"><div className="container"><div className="footer-top-grid"><div className="footer-profile"><Link href="/#top" className="footer-brand-name">Rahat Maksud Pranto</Link><p>Data Analyst working across analytics, database operations and practical engineering. Building dependable systems behind useful decisions.</p><SocialLinks compact/></div><div className="footer-nav-group"><h3>Explore</h3><Link href="/#about">About me</Link><Link href="/#capabilities">Skills &amp; tools</Link><Link href="/#projects">Projects</Link><Link href="/#experience">Experience</Link></div><div className="footer-nav-group"><h3>Resources</h3><Link href="/projects">Project archive</Link><Link href="/#credentials">Credentials</Link><ResumeButton className="footer-resume">View resume <ArrowUpRight size={14}/></ResumeButton></div><div className="footer-nav-group footer-connect"><h3>Get in touch</h3><a href={'mailto:'+site.email}>{site.email}</a><a href={site.whatsapp} target="_blank" rel="noreferrer noopener">WhatsApp <ArrowUpRight size={13}/></a><Link href="/#contact">Get in touch <ArrowUpRight size={13}/></Link></div></div><div className="footer-lower"><span>Rahat Maksud Pranto · Dhaka, Bangladesh</span><span>© 2026. All rights reserved.</span></div></div></footer>}
+export function Footer(){return <footer className="footer" id="site-footer"><div className="container"><div className="footer-top-grid"><div className="footer-profile"><HomeAnchor id="top" className="footer-brand-name">Rahat Maksud Pranto</HomeAnchor><p>Data Analyst working across analytics, database operations and practical engineering. Building dependable systems behind useful decisions.</p><SocialLinks compact/></div><div className="footer-nav-group"><h3>Explore</h3><HomeAnchor id="about">About me</HomeAnchor><HomeAnchor id="capabilities">Skills &amp; tools</HomeAnchor><HomeAnchor id="projects">Projects</HomeAnchor><HomeAnchor id="experience">Experience</HomeAnchor></div><div className="footer-nav-group"><h3>Resources</h3><Link href="/projects">Project archive</Link><HomeAnchor id="credentials">Credentials</HomeAnchor><ResumeButton className="footer-resume">View resume <ArrowUpRight size={14}/></ResumeButton></div><div className="footer-nav-group footer-connect"><h3>Get in touch</h3><a href={'mailto:'+site.email}>{site.email}</a><a href={site.whatsapp} target="_blank" rel="noreferrer noopener">WhatsApp <ArrowUpRight size={13}/></a><HomeAnchor id="contact">Get in touch <ArrowUpRight size={13}/></HomeAnchor></div></div><div className="footer-lower"><span>Rahat Maksud Pranto · Dhaka, Bangladesh</span><span>© 2026. All rights reserved.</span></div></div></footer>}
 export function FilteredProjectGrid({initial='all'}:{initial?:'all'|ProjectCategory}){const [category,setCategory]=useState<'all'|ProjectCategory>(initial);const filtered=projects.filter(p=>category==='all'||p.category===category);const tabs:[string,'all'|ProjectCategory][]=[['All projects','all'],['Analytics & BI','analytics'],['Academic','academic']];return <><div className="filters" role="group" aria-label="Filter projects">{tabs.map(([label,k])=><button key={k} aria-pressed={category===k} className={category===k?'chosen':''} onClick={()=>setCategory(k)}>{label}</button>)}</div><div className="project-card-grid"><AnimatePresence mode="popLayout">{filtered.map(p=><motion.article layout initial={{opacity:0,y:15}} animate={{opacity:1,y:0}} exit={{opacity:0,scale:.96}} key={p.slug} className="archive-card"><Link href={`/projects/${p.slug}`} aria-label={'Read project '+p.title}><div className="archive-image">{p.category!=='professional'&&p.image?<ProjectThumbnail src={projectAssetURL(p.image)} fallback={`https://rmpranto.github.io/assets/img/projects/${p.image}`} alt={`Original public project image for ${p.title}`}/>:<div className={'abstract-image visual-'+p.visual}><span className="mono">RMP / ORIGINAL CONCEPTUAL VISUAL</span><b>{p.title.split(' ').slice(0,3).join(' ')}</b><span>PUBLIC-SAFE / NOT PRODUCTION UI</span></div>}</div><div className="archive-card-main"><span className="eyebrow">{p.eyebrow}</span><h3>{p.title}</h3><p>{p.description}</p><div className="archive-card-bottom"><span className="mono quiet">{p.tools.slice(0,3).join(' · ')}</span><ArrowUpRight size={19}/></div></div></Link></motion.article>)}</AnimatePresence></div>{filtered.length===0&&<p>No projects in this category.</p>}</>}
 function ProjectThumbnail({src,alt,fallback}:{src:string,alt:string,fallback?:string}){const [attempt,setAttempt]=useState(0);const bad=attempt>(fallback?1:0);return bad?<div className="abstract-image">Original public image unavailable.<small>Project details remain accessible.</small></div>:<Image className="archive-thumbnail" src={attempt===1&&fallback?fallback:src} width={600} height={380} alt={alt} unoptimized onError={()=>setAttempt(x=>x+1)}/> }
 export function PublicProjectGallery({images,project}:{images:{filename:string,caption:string}[],project:string}){return <div className="detail-public-gallery" aria-label={`${project} original project images`}>{images.map(item=><figure key={item.filename}><a href={projectAssetURL(item.filename)} target="_blank" rel="noreferrer noopener" aria-label={`Open full image: ${item.caption}`}><ProjectThumbnail src={projectAssetURL(item.filename)} fallback={`https://rmpranto.github.io/assets/img/projects/${item.filename}`} alt={item.caption}/></a><figcaption>{item.caption} · Click image to enlarge ↗</figcaption></figure>)}</div>}

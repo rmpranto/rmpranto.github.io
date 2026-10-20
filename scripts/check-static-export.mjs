@@ -9,6 +9,9 @@ const slugs = [...data.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
 const paths = [
   'index.html','about/index.html','projects/index.html','404.html',
   'sitemap.xml','robots.txt','.nojekyll',
+  'resume/Rahat_Maksud_Pranto_Data_Analyst_2Y_Exp_CV.pdf',
+  'resume/cv-preview-page-1.webp',
+  'resume/cv-preview-page-2.webp',
   ...slugs.map(slug => `projects/${slug}/index.html`),
   ...(['pizza-sales-dashboard.html', "Spotify's-Most-Streamed-Tracks.html",'Maven-Market-Analysis.html', 'Road-Accident-Dashboard.html','Adventure-work-Report.html', 'Car-Transport-Management-System.html','Helping-Hand.html','Library-Management-System.html'].map(name=>`project-details/${name}`)),
 ];

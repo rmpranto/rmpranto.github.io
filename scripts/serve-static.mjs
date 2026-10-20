@@ -17,7 +17,7 @@ const server = http.createServer(async (req, res) => {
     else if (!stat && !path.extname(file)) file = path.join(file,'index.html');
     const bytes = await fs.readFile(file);
     res.writeHead(200, {'Content-Type':mime[path.extname(file)] || 'application/octet-stream','Cache-Control':'no-cache'}).end(bytes);
-  } catch(e) {
+  } catch(e) { 
     if (e.code === 'ENOENT' || e.code === 'ENOTDIR') {
       try {const data=await fs.readFile(path.join(root,'404.html'));res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'}).end(data);}
       catch {res.writeHead(404).end('Not found');}

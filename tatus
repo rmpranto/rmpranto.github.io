@@ -1,0 +1,172 @@
+ .env.example                                       |    3 [32m+[m
+ .github/workflows/deploy-pages.yml                 |   61 [32m+[m
+ .gitignore                                         |   40 [32m+[m
+ DEPLOY_TO_GITHUB_PAGES_V26.md                      |   73 [32m+[m
+ README.md                                          |   67 [32m+[m[31m-[m
+ START_PORTFOLIO.bat                                |   33 [32m+[m
+ START_PORTFOLIO.sh                                 |    4 [32m+[m
+ SYNC_PUBLIC_ASSETS.bat                             |    6 [32m+[m
+ app/about/page.tsx                                 |   31 [32m+[m
+ app/favicon.ico                                    |  Bin [31m0[m -> [32m8080[m bytes
+ app/globals.css                                    | 1739 [32m++++++++[m
+ app/icon.png                                       |  Bin [31m0[m -> [32m3373[m bytes
+ app/icon.svg                                       |    1 [32m+[m
+ app/layout.tsx                                     |   17 [32m+[m
+ app/not-found.tsx                                  |    2 [32m+[m
+ app/page.tsx                                       |    3 [32m+[m
+ app/projects/[slug]/page.tsx                       |  118 [32m+[m
+ app/projects/page.tsx                              |    4 [32m+[m
+ app/robots.ts                                      |   11 [32m+[m
+ app/sitemap.ts                                     |   11 [32m+[m
+ assets/icons/Macos.png                             |  Bin [31m3284[m -> [32m0[m bytes
+ assets/icons/agile.png                             |  Bin [31m2828[m -> [32m0[m bytes
+ assets/icons/ai.png                                |  Bin [31m584[m -> [32m0[m bytes
+ assets/icons/analysis.png                          |  Bin [31m1222[m -> [32m0[m bytes
+ assets/icons/bigquery.png                          |  Bin [31m798[m -> [32m0[m bytes
+ assets/icons/c++.png                               |  Bin [31m1654[m -> [32m0[m bytes
+ assets/icons/c.png                                 |  Bin [31m2991[m -> [32m0[m bytes
+ assets/icons/canva.png                             |  Bin [31m2773[m -> [32m0[m bytes
+ assets/icons/clickup.png                           |  Bin [31m1695[m -> [32m0[m bytes
+ assets/icons/csharp.png                            |  Bin [31m2750[m -> [32m0[m bytes
+ assets/icons/dash.png                              |  Bin [31m610[m -> [32m0[m bytes
+ assets/icons/dax.png                               |  Bin [31m636[m -> [32m0[m bytes
+ assets/icons/ex.png                                |  Bin [31m1007[m -> [32m0[m bytes
+ assets/icons/filmora.png                           |  Bin [31m670[m -> [32m0[m bytes
+ assets/icons/git.png                               |  Bin [31m1982[m -> [32m0[m bytes
+ assets/icons/github.png                            |  Bin [31m1007[m -> [32m0[m bytes
+ assets/icons/html.png                              |  Bin [31m3181[m -> [32m0[m bytes
+ assets/icons/iot.png                               |  Bin [31m2688[m -> [32m0[m bytes
+ assets/icons/jira.png                              |  Bin [31m1832[m -> [32m0[m bytes
+ assets/icons/linux.png                             |  Bin [31m5149[m -> [32m0[m bytes
+ assets/icons/looker.png                            |  Bin [31m409[m -> [32m0[m bytes
+ assets/icons/manual.png                            |  Bin [31m1157[m -> [32m0[m bytes
+ assets/icons/mssql.jpg                             |  Bin [31m2166[m -> [32m0[m bytes
+ assets/icons/mysql.png                             |  Bin [31m1127[m -> [32m0[m bytes
+ assets/icons/oracle.png                            |  Bin [31m685[m -> [32m0[m bytes
+ assets/icons/pb.png                                |  Bin [31m728[m -> [32m0[m bytes
+ assets/icons/php.png                               |  Bin [31m2284[m -> [32m0[m bytes
+ assets/icons/postgre.png                           |  Bin [31m1902[m -> [32m0[m bytes
+ assets/icons/project.png                           |  Bin [31m1782[m -> [32m0[m bytes
+ assets/icons/python.png                            |  Bin [31m1650[m -> [32m0[m bytes
+ assets/icons/rdbms.png                             |  Bin [31m338[m -> [32m0[m bytes
+ assets/icons/rdbmss.png                            |  Bin [31m502[m -> [32m0[m bytes
+ assets/icons/sdlc.png                              |  Bin [31m573[m -> [32m0[m bytes
+ assets/icons/sdlcc.png                             |  Bin [31m546[m -> [32m0[m bytes
+ assets/icons/snowflake.png                         |  Bin [31m648[m -> [32m0[m bytes
+ assets/icons/sql.png                               |  Bin [31m800[m -> [32m0[m bytes
+ assets/icons/stat.png                              |  Bin [31m654[m -> [32m0[m bytes
+ assets/icons/trello.png                            |  Bin [31m1142[m -> [32m0[m bytes
+ assets/icons/uml.png                               |  Bin [31m2462[m -> [32m0[m bytes
+ assets/icons/windows.png                           |  Bin [31m687[m -> [32m0[m bytes
+ assets/img/ab.png                                  |  Bin [31m1245426[m -> [32m0[m bytes
+ assets/img/about-pic-5.png                         |  Bin [31m7927490[m -> [32m0[m bytes
+ assets/img/about-pic.webp                          |  Bin [31m26274[m -> [32m0[m bytes
+ assets/img/about-pic1.JPG                          |  Bin [31m445218[m -> [32m0[m bytes
+ assets/img/about-pic1.png                          |  Bin [31m222569[m -> [32m0[m bytes
+ assets/img/about-pic2.png                          |  Bin [31m2642358[m -> [32m0[m bytes
+ assets/img/about-pic4.png                          |  Bin [31m6254828[m -> [32m0[m bytes
+ assets/img/about-pic7.png                          |  Bin [31m562895[m -> [32m0[m bytes
+ assets/img/certifications/2pbi.webp                |  Bin [31m32618[m -> [32m0[m bytes
+ assets/img/certifications/3data.webp               |  Bin [31m32094[m -> [32m0[m bytes
+ assets/img/certifications/dca.webp                 |  Bin [31m121488[m -> [32m0[m bytes
+ assets/img/certifications/dca1.webp                |  Bin [31m79670[m -> [32m0[m bytes
+ assets/img/certifications/intro_excel.webp         |  Bin [31m42426[m -> [32m0[m bytes
+ assets/img/certifications/intro_py.webp            |  Bin [31m43242[m -> [32m0[m bytes
+ assets/img/certifications/tsf.webp                 |  Bin [31m73002[m -> [32m0[m bytes
+ assets/img/favicon/android-chrome-192x192.png      |  Bin [31m7232[m -> [32m0[m bytes
+ assets/img/favicon/android-chrome-512x512.png      |  Bin [31m20580[m -> [32m0[m bytes
+ assets/img/favicon/apple-touch-icon.png            |  Bin [31m6585[m -> [32m0[m bytes
+ assets/img/favicon/favicon-16x16.png               |  Bin [31m395[m -> [32m0[m bytes
+ assets/img/favicon/favicon-32x32.png               |  Bin [31m767[m -> [32m0[m bytes
+ assets/img/favicon/favicon.ico                     |  Bin [31m15406[m -> [32m0[m bytes
+ assets/img/favicon/site.webmanifest                |    1 [31m-[m
+ assets/img/header-1.jpg                            |  Bin [31m2218640[m -> [32m0[m bytes
+ assets/img/header-2.jpg                            |  Bin [31m1302485[m -> [32m0[m bytes
+ assets/img/map.PNG                                 |  Bin [31m720466[m -> [32m0[m bytes
+ assets/img/pro.png                                 |  Bin [31m936751[m -> [32m0[m bytes
+ assets/img/pro2.png                                |  Bin [31m899901[m -> [32m0[m bytes
+ assets/img/projects/apizzam.webp                   |  Bin [31m46692[m -> [32m0[m bytes
+ assets/img/projects/sales.webp                     |  Bin [31m37980[m -> [32m0[m bytes
+ assets/img/projects/sampson.webp                   |  Bin [31m66346[m -> [32m0[m bytes
+ components/Interface.tsx                           |  224 [32m++[m
+ components/ProjectGallery.tsx                      |   83 [32m+[m
+ content/data.ts                                    |  161 [32m+[m
+ content/public-project-details.ts                  |  253 [32m++[m
+ css/project-details.css                            |  486 [31m---[m
+ css/style.css                                      | 3670 [31m-----------------[m
+ desktop.ini                                        |    4 [31m-[m
+ docs/CV_Rahat_Data_Analyst.pdf                     |  Bin [31m350564[m -> [32m0[m bytes
+ index.html                                         | 1279 [31m------[m
+ js/config.js                                       |   43 [31m-[m
+ js/main.js                                         |  662 [31m----[m
+ lib/public-assets.ts                               |   20 [32m+[m
+ lib/site.ts                                        |   17 [32m+[m
+ next-env.d.ts                                      |    6 [32m+[m
+ next.config.ts                                     |   14 [32m+[m
+ package-lock.json                                  | 4165 [32m++++++++++++++++++++[m
+ package.json                                       |   36 [32m+[m
+ postcss.config.mjs                                 |    1 [32m+[m
+ project-details/Adventure-work-Report.html         |  321 [31m--[m
+ .../Car-Transport-Management-System.html           |  316 [31m--[m
+ project-details/Helping-Hand.html                  |  316 [31m--[m
+ project-details/Library-Management-System.html     |  314 [31m--[m
+ project-details/Maven-Market-Analysis.html         |  317 [31m--[m
+ project-details/Road-Accident-Dashboard.html       |  318 [31m--[m
+ .../Spotify's-Most-Streamed-Tracks.html            |  319 [31m--[m
+ project-details/pizza-sales-dashboard.html         |  325 [31m--[m
+ public/.nojekyll                                   |    0
+ public/apple-icon.png                              |  Bin [31m0[m -> [32m10167[m bytes
+ .../img => public/assets}/certifications/1sqa.webp |  Bin
+ .../img => public/assets}/certifications/Asql.webp |  Bin
+ .../img => public/assets}/certifications/Data.webp |  Bin
+ .../img => public/assets}/certifications/Esql.webp |  Bin
+ .../img => public/assets}/certifications/dca2.webp |  Bin
+ .../assets}/certifications/excel.webp              |  Bin
+ .../assets}/certifications/intro_data.webp         |  Bin
+ .../assets}/certifications/looker.webp             |  Bin
+ .../img => public/assets}/certifications/pbid.webp |  Bin
+ .../img => public/assets}/certifications/tdst.webp |  Bin
+ .../assets}/certifications/uc_excel.webp           |  Bin
+ .../assets}/certifications/zpython.webp            |  Bin
+ {assets/img => public/assets/profile}/pro4.png     |  Bin
+ .../projects/adventure-works-report}/awrep.webp    |  Bin
+ .../projects/adventure-works-report}/awreport.webp |  Bin
+ .../projects/car-transport-management}/acar.webp   |  Bin
+ .../projects/car-transport-management}/car.webp    |  Bin
+ .../assets/projects/helping-hand}/charity.webp     |  Bin
+ .../library-management-system}/library.webp        |  Bin
+ .../projects/maven-market-analysis}/amaven.webp    |  Bin
+ .../projects/maven-market-analysis}/maven.webp     |  Bin
+ .../projects/pizza-sales-analytics}/Pizza.webp     |  Bin
+ .../projects/pizza-sales-analytics}/apizza.webp    |  Bin
+ .../projects/road-accident-analysis}/road.webp     |  Bin
+ .../spotify-streaming-analysis}/spotify.webp       |  Bin
+ public/brands/aiub-color.webp                      |  Bin [31m0[m -> [32m24970[m bytes
+ public/brands/aiub-white.svg                       |    1 [32m+[m
+ public/brands/banglalink-transparent.png           |  Bin [31m0[m -> [32m74598[m bytes
+ public/brands/banglalink.webp                      |  Bin [31m0[m -> [32m4420[m bytes
+ public/brands/bat-bangladesh.png                   |  Bin [31m0[m -> [32m10143[m bytes
+ public/brands/v2-mark.png                          |  Bin [31m0[m -> [32m74483[m bytes
+ public/favicon-16x16.png                           |  Bin [31m0[m -> [32m627[m bytes
+ public/favicon-32x32.png                           |  Bin [31m0[m -> [32m1512[m bytes
+ public/favicon-96x96.png                           |  Bin [31m0[m -> [32m5481[m bytes
+ public/favicon.ico                                 |  Bin [31m0[m -> [32m8080[m bytes
+ public/favicon.svg                                 |    1 [32m+[m
+ public/icon.png                                    |  Bin [31m0[m -> [32m3373[m bytes
+ public/icon.svg                                    |    1 [32m+[m
+ public/project-details/Adventure-work-Report.html  |    1 [32m+[m
+ .../Car-Transport-Management-System.html           |    1 [32m+[m
+ public/project-details/Helping-Hand.html           |    1 [32m+[m
+ .../project-details/Library-Management-System.html |    1 [32m+[m
+ public/project-details/Maven-Market-Analysis.html  |    1 [32m+[m
+ .../project-details/Road-Accident-Dashboard.html   |    1 [32m+[m
+ .../Spotify's-Most-Streamed-Tracks.html            |    1 [32m+[m
+ public/project-details/pizza-sales-dashboard.html  |    1 [32m+[m
+ .../Rahat_Maksud_Pranto_Data_Analyst_2Y_Exp_CV.pdf |  Bin [31m0[m -> [32m233089[m bytes
+ scripts/check-public-assets.mjs                    |   30 [32m+[m
+ scripts/check-static-export.mjs                    |   26 [32m+[m
+ scripts/public-assets-manifest.json                |  152 [32m+[m
+ scripts/serve-static.mjs                           |   27 [32m+[m
+ scripts/sync-public-assets.mjs                     |   41 [32m+[m
+ tsconfig.json                                      |    1 [32m+[m
+ 171 files changed, 7444 insertions(+), 8739 deletions(-)

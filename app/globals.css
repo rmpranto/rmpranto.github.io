@@ -1737,3 +1737,45 @@ html:not([data-theme="light"]) .back-to-top:hover {
 }
 .back-to-top svg {stroke:currentColor;stroke-width:2.4px;}
 .back-to-top:focus-visible {outline:3px solid var(--accent-2);outline-offset:4px;}
+
+
+/* V26.2 – Repeated mobile anchors and reliable full-CV preview. */
+@media (max-width: 1100px) {
+  .site-header .mobile-nav {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    z-index: 3;
+    max-height: calc(100dvh - 66px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--bg);
+    box-shadow: 0 16px 30px rgba(0,0,0,.16);
+  }
+}
+.resume-modal {min-height:0;max-height:calc(100dvh - 24px);}
+.resume-pages {
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:16px;
+  background:color-mix(in srgb,var(--bg) 80%,#888);
+}
+.resume-page {width:min(100%,725px);margin:0;flex-shrink:0;}
+.resume-page figcaption {margin:0 0 7px;font:600 10px/1.5 var(--font-sans);letter-spacing:.12em;color:var(--fg);}
+.resume-page img {display:block;width:100%;height:auto;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.18);}
+@media(max-width:760px) {
+ .resume-overlay{padding:8px;}
+ .resume-modal{height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);}
+ .resume-top{flex-shrink:0;}
+ .resume-mobile-help{flex-shrink:0;display:block;margin:6px 13px;font-size:11px;}
+ .resume-pages{padding:9px;gap:13px;}
+ .resume-actions{flex-shrink:0;}
+}
