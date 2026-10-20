@@ -48,6 +48,28 @@ const navigation=[['About','/#about'],['Capabilities','/#capabilities'],['Projec
 /** The Next.js router does not reliably re-scroll to hash targets on repeated
  * same-route taps in mobile Safari. Handle anchors on the home page directly.
  * For other routes preserve Next.js Link navigation to /#section. */
+function scrollToHomeSection(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  const hash = `#${id}`;
+  const url = window.location.pathname + window.location.search + hash;
+  if (window.location.hash !== hash) {
+    // Preserve the Next.js App Router history state and browser Back behavior.
+    window.history.pushState(window.history.state, "", url);
+  }
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  // Explicitly scroll the real section: changing the URL hash is not enough.
+  target.scrollIntoView({
+    behavior: reducedMotion ? "auto" : "smooth",
+    block: "start",
+  });
+}
+
 function HomeAnchor({
   id,
   children,
@@ -55,6 +77,7 @@ function HomeAnchor({
   onNavigate,
   ariaLabel,
   ariaCurrent,
+  deferScroll = false,
 }: {
   id: string;
   children: ReactNode;
@@ -62,13 +85,11 @@ function HomeAnchor({
   onNavigate?: () => void;
   ariaLabel?: string;
   ariaCurrent?: "location";
+  deferScroll?: boolean;
 }) {
   const pathname = usePathname();
 
-  const handleClick = (
-    event: ReactMouseEvent<HTMLAnchorElement>
-  ) => {
-    // Preserve native behavior for modified and non-primary clicks.
+  const handleClick = (event: ReactMouseEvent<HTMLAnchorElement>) => {
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
@@ -76,39 +97,22 @@ function HomeAnchor({
       event.ctrlKey ||
       event.shiftKey ||
       event.altKey
-    ) {
+    ) return;
+
+    if (pathname === "/" && document.getElementById(id)) {
+      event.preventDefault();
+
+      if (deferScroll) {
+        // Mobile menu must finish exiting before the page is scrolled.
+        onNavigate?.();
+      } else {
+        scrollToHomeSection(id);
+        onNavigate?.();
+      }
       return;
     }
 
-    if (pathname === "/") {
-      const target = document.getElementById(id);
-
-      if (target) {
-        event.preventDefault();
-        const hash = `#${id}`;
-
-        if (window.location.hash !== hash) {
-          // Use native hash navigation for reliable section scrolling.
-          window.location.hash = hash;
-        } else {
-          // Repeated clicks on the current hash still scroll.
-          const reducedMotion = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-          ).matches;
-
-          target.scrollIntoView({
-            behavior: reducedMotion ? "auto" : "smooth",
-            block: "start",
-          });
-        }
-
-        // Close the mobile menu only after requesting navigation.
-        onNavigate?.();
-        return;
-      }
-    }
-
-    // On other pages, let Next.js handle the route transition.
+    // When already on another route, let Next.js handle /#section.
     onNavigate?.();
   };
 
@@ -128,9 +132,21 @@ function HomeAnchor({
 export function Header(){
  const pathname=usePathname();
  const [menu,setMenu]=useState(false);
+ const pendingScroll=useRef<string | null>(null);
  const [active,setActive]=useState('');
  const {scrollYProgress}=useScroll();
- useEffect(()=>{setMenu(false)},[pathname]);
+ const handleMobileNavigate=(id:string)=>{
+  if(pathname==="/")pendingScroll.current=id;
+  setMenu(false);
+ };
+ const handleMenuExitComplete=()=>{
+  const id=pendingScroll.current;
+  pendingScroll.current=null;
+  if(id && window.location.pathname==="/"){
+   window.requestAnimationFrame(()=>scrollToHomeSection(id));
+  }
+ };
+ useEffect(()=>{pendingScroll.current=null;setMenu(false)},[pathname]);
  useEffect(()=>{
   // The shared header survives App Router navigation. Never keep section nodes
   // from the previous page: they become detached after /about -> /#top.
@@ -178,7 +194,7 @@ export function Header(){
   <nav aria-label="Primary navigation" className="desktop-nav">{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><HomeAnchor key={url} id={url.slice(2)} className={active===url.slice(2)?'nav-active':''} ariaCurrent={active===url.slice(2)?'location':undefined}>{label}</HomeAnchor>)}</nav>
   <div className="nav-right"><ThemeToggle/><HomeAnchor id="contact" className="nav-contact">Get in Touch <ArrowUpRight size={15}/></HomeAnchor><button className="menu-button" aria-label={menu?'Close menu':'Open menu'} aria-expanded={menu} aria-controls="mobile-menu" onClick={()=>setMenu(!menu)}>{menu?<X size={22}/>:<Menu size={22}/>}</button></div></div>
   <motion.span className="site-scroll-progress" style={{scaleX:scrollYProgress}} aria-hidden="true"/>
-  <AnimatePresence>{menu&&<motion.nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0,height:0}} animate={{opacity:1,height:'auto'}} exit={{opacity:0,height:0}} transition={{duration:.25}}>{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><HomeAnchor key={url} id={url.slice(2)} onNavigate={()=>setMenu(false)}>{label}<ArrowUpRight size={16}/></HomeAnchor>)}<HomeAnchor id="contact" className="mobile-contact" onNavigate={()=>setMenu(false)}>Get in Touch <ArrowUpRight size={16}/></HomeAnchor><ResumeButton className="mobile-resume">View Resume <FileText size={16}/></ResumeButton></motion.nav>}</AnimatePresence>
+  <AnimatePresence onExitComplete={handleMenuExitComplete}>{menu&&<motion.nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation" initial={{opacity:0,height:0}} animate={{opacity:1,height:'auto'}} exit={{opacity:0,height:0}} transition={{duration:.25}}>{navigation.filter(([label])=>label!=="Get in Touch").map(([label,url])=><HomeAnchor key={url} id={url.slice(2)} deferScroll onNavigate={()=>handleMobileNavigate(url.slice(2))}>{label}<ArrowUpRight size={16}/></HomeAnchor>)}<HomeAnchor id="contact" className="mobile-contact" deferScroll onNavigate={()=>handleMobileNavigate("contact")}>Get in Touch <ArrowUpRight size={16}/></HomeAnchor><ResumeButton className="mobile-resume">View Resume <FileText size={16}/></ResumeButton></motion.nav>}</AnimatePresence>
  </header>;
 }
 export function BackToTop(){const [visible,setVisible]=useState(false);useEffect(()=>{const onScroll=()=>setVisible(window.scrollY>520);onScroll();window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll)},[]);return <AnimatePresence>{visible&&<motion.button type="button" className="back-to-top" title="Back to top" aria-label="Back to top" onClick={()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})} initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} exit={{opacity:0,y:14}}><ArrowUpRight className="back-to-top-arrow" size={20}/></motion.button>}</AnimatePresence>;}
