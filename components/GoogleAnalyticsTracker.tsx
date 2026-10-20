@@ -8,7 +8,7 @@ const GA_ID = "G-KHFN221VE5";
 
 declare global {
   interface Window {
-    dataLayer: unknown[][];
+    dataLayer: unknown[];
     gtag?: (...args: unknown[]) => void;
   }
 }
@@ -32,8 +32,10 @@ export default function GoogleAnalyticsTracker() {
 
     // Set up the official gtag command queue BEFORE loading gtag.js.
     window.dataLayer = window.dataLayer || [];
-    window.gtag = (...args: unknown[]) => {
-      window.dataLayer.push(args);
+    // Google tag processes the Arguments object, not a spread-args array.
+    // Keep a normal function (not an arrow) to access its own arguments.
+    window.gtag = function (..._args: unknown[]) {
+      window.dataLayer.push(arguments);
     };
 
     window.gtag("js", new Date());
