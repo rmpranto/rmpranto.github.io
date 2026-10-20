@@ -48,22 +48,81 @@ const navigation=[['About','/#about'],['Capabilities','/#capabilities'],['Projec
 /** The Next.js router does not reliably re-scroll to hash targets on repeated
  * same-route taps in mobile Safari. Handle anchors on the home page directly.
  * For other routes preserve Next.js Link navigation to /#section. */
-function HomeAnchor({id,children,className,onNavigate,ariaLabel,ariaCurrent}:{id:string;children:ReactNode;className?:string;onNavigate?:()=>void;ariaLabel?:string;ariaCurrent?:'location'}){
- const pathname=usePathname();
- const handleClick=(event:ReactMouseEvent<HTMLAnchorElement>)=>{
-  if(event.defaultPrevented || event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)return;
-  onNavigate?.();
-  if(pathname!=='/')return;
-  const target=document.getElementById(id);
-  if(!target)return;
-  event.preventDefault();
-  const url=window.location.pathname+window.location.search+'#'+id;
-  // Keep App Router's history state intact while making the URL shareable.
-  if(window.location.hash!=='#'+id)window.history.pushState(window.history.state,'',url);
-  const behavior=window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
-  window.requestAnimationFrame(()=>target.scrollIntoView({behavior,block:'start'}));
- };
- return <Link href={`/#${id}`} className={className} onClick={handleClick} aria-label={ariaLabel} aria-current={ariaCurrent}>{children}</Link>;
+function HomeAnchor({
+  id,
+  children,
+  className,
+  onNavigate,
+  ariaLabel,
+  ariaCurrent,
+}: {
+  id: string;
+  children: ReactNode;
+  className?: string;
+  onNavigate?: () => void;
+  ariaLabel?: string;
+  ariaCurrent?: "location";
+}) {
+  const pathname = usePathname();
+
+  const handleClick = (
+    event: ReactMouseEvent<HTMLAnchorElement>
+  ) => {
+    // Preserve native behavior for modified and non-primary clicks.
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    if (pathname === "/") {
+      const target = document.getElementById(id);
+
+      if (target) {
+        event.preventDefault();
+        const hash = `#${id}`;
+
+        if (window.location.hash !== hash) {
+          // Use native hash navigation for reliable section scrolling.
+          window.location.hash = hash;
+        } else {
+          // Repeated clicks on the current hash still scroll.
+          const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+          target.scrollIntoView({
+            behavior: reducedMotion ? "auto" : "smooth",
+            block: "start",
+          });
+        }
+
+        // Close the mobile menu only after requesting navigation.
+        onNavigate?.();
+        return;
+      }
+    }
+
+    // On other pages, let Next.js handle the route transition.
+    onNavigate?.();
+  };
+
+  return (
+    <Link
+      href={`/#${id}`}
+      className={className}
+      onClick={handleClick}
+      aria-label={ariaLabel}
+      aria-current={ariaCurrent}
+    >
+      {children}
+    </Link>
+  );
 }
 
 export function Header(){
