@@ -141,6 +141,7 @@ export const skills = [
 ];
 export type Credential={name:string,issuer:string,url?:string; image?:string};
 export const credentials: Credential[] = [
+ {name:'IELTS Academic — Overall Band 6.5',issuer:'English language proficiency · 23 October 2026'},
  {name:'DataCamp Certified Data Analyst Associate',issuer:'DataCamp',url:'https://www.datacamp.com/certificate/DAA0018970684743',image:'/assets/certifications/dca2.webp'},
  {name:'Associate Data Analyst in SQL',issuer:'DataCamp',url:'https://www.datacamp.com/completed/statement-of-accomplishment/track/3615750876ff40f368c47fcebcaaee4fec7d1cf8',image:'/assets/certifications/Asql.webp'},
  {name:'Associate Data Engineer in SQL',issuer:'DataCamp',url:'https://www.datacamp.com/completed/statement-of-accomplishment/track/6f8f039f541652270ba6fcc787ebf50cdc6a25b9',image:'/assets/certifications/Esql.webp'},
